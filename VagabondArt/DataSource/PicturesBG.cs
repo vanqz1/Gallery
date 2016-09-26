@@ -20,6 +20,8 @@ namespace DataSource
         public string Size { get; set; }
         public Nullable<int> Author { get; set; }
         public decimal Price { get; set; }
+        public bool IsSold { get; set; }
+        public string PicturePath { get; set; }
     
         public virtual AuthorsBG AuthorsBG { get; set; }
     }

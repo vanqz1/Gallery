@@ -1,8 +1,6 @@
-﻿using Repository.RepositoryInterfaces;
-
-namespace Repository.Repository
+﻿namespace Repository.Repository
 {
-    public class PicturesBgModelRepository : IPictures
+    public class PicturesBgModelRepository 
     {
         public int Id { get; set; }
         public string Title { get; set; }
@@ -10,5 +8,7 @@ namespace Repository.Repository
         public string Size { get; set; }
         public decimal Price { get; set; }
         public string AuthorName { get; set; }
+        public string PicturePath { get; set; }
+        public bool IsSold { get; set; }
     }
 }

@@ -5,12 +5,12 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="883b601368134c2fbcc07f4736ee41d2" Name="Diagram1">
-        <EntityTypeShape EntityType="VagabondModel.AuthorsBG" Width="1.5" PointX="0.75" PointY="5.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="VagabondModel.AuthorsEN" Width="1.5" PointX="0.75" PointY="1.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="VagabondModel.PicturesBG" Width="1.5" PointX="3" PointY="5" IsExpanded="true" />
-        <EntityTypeShape EntityType="VagabondModel.PicturesEN" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
-        <AssociationConnector Association="VagabondModel.FK__PicturesB__Autho__1BFD2C07" ManuallyRouted="false" />
-        <AssociationConnector Association="VagabondModel.FK__PicturesE__Autho__20C1E124" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="VagabondModel.AuthorsBG" Width="1.5" PointX="0.75" PointY="5.5" />
+        <EntityTypeShape EntityType="VagabondModel.AuthorsEN" Width="1.5" PointX="0.75" PointY="1.5" />
+        <EntityTypeShape EntityType="VagabondModel.PicturesBG" Width="1.5" PointX="3" PointY="5" />
+        <EntityTypeShape EntityType="VagabondModel.PicturesEN" Width="1.5" PointX="3" PointY="1" />
+        <AssociationConnector Association="VagabondModel.FK__PicturesB__Autho__1BFD2C07" />
+        <AssociationConnector Association="VagabondModel.FK__PicturesE__Autho__20C1E124" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -24,6 +24,8 @@
     <Property Name="Size" Type="nvarchar" MaxLength="250" Nullable="false" />
     <Property Name="Author" Type="int" />
     <Property Name="Price" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="IsSold" Type="bit" Nullable="false" />
+    <Property Name="PicturePath" Type="nvarchar" MaxLength="250" Nullable="false" />
   </EntityType>
   <EntityType Name="PicturesEN">
     <Key>
@@ -35,6 +37,8 @@
     <Property Name="Size" Type="nvarchar" MaxLength="250" Nullable="false" />
     <Property Name="Author" Type="int" Nullable="false" />
     <Property Name="Price" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="IsSold" Type="bit" Nullable="false" />
+    <Property Name="PicturePath" Type="nvarchar" MaxLength="250" Nullable="false" />
   </EntityType>
   <Association Name="FK__PicturesB__Autho__1BFD2C07">
     <End Role="AuthorsBG" Type="Self.AuthorsBG" Multiplicity="0..1" />

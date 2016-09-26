@@ -1,14 +1,10 @@
-﻿using DataSource;
-using DataSource.DataSource;
-using System;
+﻿using DataSource.DataSource;
+using Repository.RepositoryInterfaces;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Repository.Repository
 {
-    public class PicturesEnRepository
+    public class PicturesEnRepository : IPicturesEnRepository
     {
         private readonly PicturesEnDataSource m_PicturesEnModel;
 
@@ -34,7 +30,9 @@ namespace Repository.Repository
                 Technics = picture.Technics,
                 AuthorName = picture.AuthorsEN.Name,
                 Size = picture.Size,
-                Price = picture.Price
+                Price = picture.Price,
+                IsSold = picture.IsSold,
+                PicturePath = picture.PicturePath
 
             };
         }
@@ -52,7 +50,9 @@ namespace Repository.Repository
                     Technics = picture.Technics,
                     AuthorName = picture.AuthorsEN.Name,
                     Size = picture.Size,
-                    Price = picture.Price
+                    Price = picture.Price,
+                    IsSold = picture.IsSold,
+                    PicturePath = picture.PicturePath
                 });
             }
 

@@ -34,7 +34,9 @@ namespace DataSource
                         Author = picture.Author,
                         Size = picture.Size,
                         Price = picture.Price,
-                        AuthorsBG = picture.AuthorsBG
+                        AuthorsBG = picture.AuthorsBG,
+                        IsSold = picture.IsSold,
+                        PicturePath = picture.PicturePath
                     });
                 }
                 return listOfPictures;
@@ -57,7 +59,9 @@ namespace DataSource
                     Author = picture.Author,
                     Size = picture.Size,
                     Price = picture.Price,
-                    AuthorsBG = picture.AuthorsBG
+                    AuthorsBG = picture.AuthorsBG,
+                    IsSold = picture.IsSold,
+                    PicturePath = picture.PicturePath
                 };
             }  
         }

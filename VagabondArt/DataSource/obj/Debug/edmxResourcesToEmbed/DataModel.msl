@@ -4,40 +4,44 @@
     <EntitySetMapping Name="AuthorsBGs">
       <EntityTypeMapping TypeName="VagabondModel.AuthorsBG">
         <MappingFragment StoreEntitySet="AuthorsBG">
-          <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="AuthorsENs">
       <EntityTypeMapping TypeName="VagabondModel.AuthorsEN">
         <MappingFragment StoreEntitySet="AuthorsEN">
-          <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="PicturesBGs">
       <EntityTypeMapping TypeName="VagabondModel.PicturesBG">
         <MappingFragment StoreEntitySet="PicturesBG">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="Title" ColumnName="Title" />
-          <ScalarProperty Name="Technics" ColumnName="Technics" />
-          <ScalarProperty Name="Size" ColumnName="Size" />
-          <ScalarProperty Name="Author" ColumnName="Author" />
+          <ScalarProperty Name="PicturePath" ColumnName="PicturePath" />
+          <ScalarProperty Name="IsSold" ColumnName="IsSold" />
           <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Author" ColumnName="Author" />
+          <ScalarProperty Name="Size" ColumnName="Size" />
+          <ScalarProperty Name="Technics" ColumnName="Technics" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="PicturesENs">
       <EntityTypeMapping TypeName="VagabondModel.PicturesEN">
         <MappingFragment StoreEntitySet="PicturesEN">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="Title" ColumnName="Title" />
-          <ScalarProperty Name="Technics" ColumnName="Technics" />
-          <ScalarProperty Name="Size" ColumnName="Size" />
-          <ScalarProperty Name="Author" ColumnName="Author" />
+          <ScalarProperty Name="PicturePath" ColumnName="PicturePath" />
+          <ScalarProperty Name="IsSold" ColumnName="IsSold" />
           <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Author" ColumnName="Author" />
+          <ScalarProperty Name="Size" ColumnName="Size" />
+          <ScalarProperty Name="Technics" ColumnName="Technics" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

@@ -1,9 +1,10 @@
 ﻿using DataSource;
+using Repository.RepositoryInterfaces;
 using System.Collections.Generic;
 
 namespace Repository.Repository
 {
-    public class PicturesBgRepository
+    public class PicturesBgRepository : IPicturesBgRepository
     {
         private readonly PicturesBgDataSource m_PicturesBgModel;
 
@@ -30,7 +31,9 @@ namespace Repository.Repository
                 Technics = picture.Technics,
                 AuthorName = picture.AuthorsBG.Name,
                 Size = picture.Size,
-                Price = picture.Price
+                Price = picture.Price,
+                IsSold = picture.IsSold,
+                PicturePath = picture.PicturePath
 
             };
         }
@@ -48,7 +51,9 @@ namespace Repository.Repository
                     Technics = picture.Technics,
                     AuthorName = picture.AuthorsBG.Name,
                     Size = picture.Size,
-                    Price = picture.Price
+                    Price = picture.Price,
+                    IsSold = picture.IsSold,
+                    PicturePath = picture.PicturePath
                 });
             }
 
