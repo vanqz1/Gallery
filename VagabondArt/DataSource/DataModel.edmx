@@ -1,0 +1,234 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="VagabondModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AuthorsBG">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="250" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AuthorsEN">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="250" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PicturesBG">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="Technics" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="Size" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="Author" Type="int" />
+          <Property Name="Price" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PicturesEN">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="Technics" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="Size" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="Author" Type="int" Nullable="false" />
+          <Property Name="Price" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__PicturesB__Autho__1BFD2C07">
+          <End Role="AuthorsBG" Type="Self.AuthorsBG" Multiplicity="0..1" />
+          <End Role="PicturesBG" Type="Self.PicturesBG" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AuthorsBG">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PicturesBG">
+              <PropertyRef Name="Author" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PicturesE__Autho__20C1E124">
+          <End Role="AuthorsEN" Type="Self.AuthorsEN" Multiplicity="1" />
+          <End Role="PicturesEN" Type="Self.PicturesEN" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AuthorsEN">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PicturesEN">
+              <PropertyRef Name="Author" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="VagabondModelStoreContainer">
+          <EntitySet Name="AuthorsBG" EntityType="Self.AuthorsBG" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AuthorsEN" EntityType="Self.AuthorsEN" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PicturesBG" EntityType="Self.PicturesBG" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PicturesEN" EntityType="Self.PicturesEN" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__PicturesB__Autho__1BFD2C07" Association="Self.FK__PicturesB__Autho__1BFD2C07">
+            <End Role="AuthorsBG" EntitySet="AuthorsBG" />
+            <End Role="PicturesBG" EntitySet="PicturesBG" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PicturesE__Autho__20C1E124" Association="Self.FK__PicturesE__Autho__20C1E124">
+            <End Role="AuthorsEN" EntitySet="AuthorsEN" />
+            <End Role="PicturesEN" EntitySet="PicturesEN" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="VagabondModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="AuthorsBG">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="PicturesBGs" Relationship="Self.FK__PicturesB__Autho__1BFD2C07" FromRole="AuthorsBG" ToRole="PicturesBG" />
+        </EntityType>
+        <EntityType Name="AuthorsEN">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="PicturesENs" Relationship="Self.FK__PicturesE__Autho__20C1E124" FromRole="AuthorsEN" ToRole="PicturesEN" />
+        </EntityType>
+        <EntityType Name="PicturesBG">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Technics" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Size" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Author" Type="Int32" />
+          <Property Name="Price" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <NavigationProperty Name="AuthorsBG" Relationship="Self.FK__PicturesB__Autho__1BFD2C07" FromRole="PicturesBG" ToRole="AuthorsBG" />
+        </EntityType>
+        <EntityType Name="PicturesEN">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Technics" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Size" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Author" Type="Int32" Nullable="false" />
+          <Property Name="Price" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <NavigationProperty Name="AuthorsEN" Relationship="Self.FK__PicturesE__Autho__20C1E124" FromRole="PicturesEN" ToRole="AuthorsEN" />
+        </EntityType>
+        <Association Name="FK__PicturesB__Autho__1BFD2C07">
+          <End Role="AuthorsBG" Type="Self.AuthorsBG" Multiplicity="0..1" />
+          <End Role="PicturesBG" Type="Self.PicturesBG" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AuthorsBG">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PicturesBG">
+              <PropertyRef Name="Author" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PicturesE__Autho__20C1E124">
+          <End Role="AuthorsEN" Type="Self.AuthorsEN" Multiplicity="1" />
+          <End Role="PicturesEN" Type="Self.PicturesEN" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AuthorsEN">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PicturesEN">
+              <PropertyRef Name="Author" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="VagabondEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AuthorsBGs" EntityType="Self.AuthorsBG" />
+          <EntitySet Name="AuthorsENs" EntityType="Self.AuthorsEN" />
+          <EntitySet Name="PicturesBGs" EntityType="Self.PicturesBG" />
+          <EntitySet Name="PicturesENs" EntityType="Self.PicturesEN" />
+          <AssociationSet Name="FK__PicturesB__Autho__1BFD2C07" Association="Self.FK__PicturesB__Autho__1BFD2C07">
+            <End Role="AuthorsBG" EntitySet="AuthorsBGs" />
+            <End Role="PicturesBG" EntitySet="PicturesBGs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PicturesE__Autho__20C1E124" Association="Self.FK__PicturesE__Autho__20C1E124">
+            <End Role="AuthorsEN" EntitySet="AuthorsENs" />
+            <End Role="PicturesEN" EntitySet="PicturesENs" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="VagabondModelStoreContainer" CdmEntityContainer="VagabondEntities">
+          <EntitySetMapping Name="AuthorsBGs">
+            <EntityTypeMapping TypeName="VagabondModel.AuthorsBG">
+              <MappingFragment StoreEntitySet="AuthorsBG">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AuthorsENs">
+            <EntityTypeMapping TypeName="VagabondModel.AuthorsEN">
+              <MappingFragment StoreEntitySet="AuthorsEN">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PicturesBGs">
+            <EntityTypeMapping TypeName="VagabondModel.PicturesBG">
+              <MappingFragment StoreEntitySet="PicturesBG">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Technics" ColumnName="Technics" />
+                <ScalarProperty Name="Size" ColumnName="Size" />
+                <ScalarProperty Name="Author" ColumnName="Author" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PicturesENs">
+            <EntityTypeMapping TypeName="VagabondModel.PicturesEN">
+              <MappingFragment StoreEntitySet="PicturesEN">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Technics" ColumnName="Technics" />
+                <ScalarProperty Name="Size" ColumnName="Size" />
+                <ScalarProperty Name="Author" ColumnName="Author" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

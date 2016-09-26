@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="VagabondModelStoreContainer" CdmEntityContainer="VagabondEntities2">
+    <EntitySetMapping Name="AuthorsBGs">
+      <EntityTypeMapping TypeName="VagabondModel.AuthorsBG">
+        <MappingFragment StoreEntitySet="AuthorsBG">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AuthorsENs">
+      <EntityTypeMapping TypeName="VagabondModel.AuthorsEN">
+        <MappingFragment StoreEntitySet="AuthorsEN">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PicturesBGs">
+      <EntityTypeMapping TypeName="VagabondModel.PicturesBG">
+        <MappingFragment StoreEntitySet="PicturesBG">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Technics" ColumnName="Technics" />
+          <ScalarProperty Name="Size" ColumnName="Size" />
+          <ScalarProperty Name="Author" ColumnName="Author" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PicturesENs">
+      <EntityTypeMapping TypeName="VagabondModel.PicturesEN">
+        <MappingFragment StoreEntitySet="PicturesEN">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Technics" ColumnName="Technics" />
+          <ScalarProperty Name="Size" ColumnName="Size" />
+          <ScalarProperty Name="Author" ColumnName="Author" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

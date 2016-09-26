@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="VagabondModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="AuthorsBG">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="PicturesBGs" Relationship="Self.FK__PicturesB__Autho__1BFD2C07" FromRole="AuthorsBG" ToRole="PicturesBG" />
+  </EntityType>
+  <EntityType Name="AuthorsEN">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="PicturesENs" Relationship="Self.FK__PicturesE__Autho__20C1E124" FromRole="AuthorsEN" ToRole="PicturesEN" />
+  </EntityType>
+  <EntityType Name="PicturesBG">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Technics" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Size" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Author" Type="Int32" />
+    <Property Name="Price" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+    <NavigationProperty Name="AuthorsBG" Relationship="Self.FK__PicturesB__Autho__1BFD2C07" FromRole="PicturesBG" ToRole="AuthorsBG" />
+  </EntityType>
+  <EntityType Name="PicturesEN">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Technics" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Size" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Author" Type="Int32" Nullable="false" />
+    <Property Name="Price" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+    <NavigationProperty Name="AuthorsEN" Relationship="Self.FK__PicturesE__Autho__20C1E124" FromRole="PicturesEN" ToRole="AuthorsEN" />
+  </EntityType>
+  <Association Name="FK__PicturesB__Autho__1BFD2C07">
+    <End Role="AuthorsBG" Type="Self.AuthorsBG" Multiplicity="0..1" />
+    <End Role="PicturesBG" Type="Self.PicturesBG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AuthorsBG">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PicturesBG">
+        <PropertyRef Name="Author" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PicturesE__Autho__20C1E124">
+    <End Role="AuthorsEN" Type="Self.AuthorsEN" Multiplicity="1" />
+    <End Role="PicturesEN" Type="Self.PicturesEN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AuthorsEN">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PicturesEN">
+        <PropertyRef Name="Author" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="VagabondEntities2" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="AuthorsBGs" EntityType="Self.AuthorsBG" />
+    <EntitySet Name="AuthorsENs" EntityType="Self.AuthorsEN" />
+    <EntitySet Name="PicturesBGs" EntityType="Self.PicturesBG" />
+    <EntitySet Name="PicturesENs" EntityType="Self.PicturesEN" />
+    <AssociationSet Name="FK__PicturesB__Autho__1BFD2C07" Association="Self.FK__PicturesB__Autho__1BFD2C07">
+      <End Role="AuthorsBG" EntitySet="AuthorsBGs" />
+      <End Role="PicturesBG" EntitySet="PicturesBGs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PicturesE__Autho__20C1E124" Association="Self.FK__PicturesE__Autho__20C1E124">
+      <End Role="AuthorsEN" EntitySet="AuthorsENs" />
+      <End Role="PicturesEN" EntitySet="PicturesENs" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
