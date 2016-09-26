@@ -146,11 +146,16 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\PicturesEnController.cs" />
     <Compile Include="Controllers\PicturesBgController.cs" />
-    <Compile Include="Controllers\TestController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Interfaces\IPicturesBgServices.cs" />
+    <Compile Include="Interfaces\IPicturesEnServices.cs" />
+    <Compile Include="Models\PicturesBg.cs" />
+    <Compile Include="Models\PicturesEn.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\PicturesBgServices.cs" />
+    <Compile Include="Services\PicturesEnServices.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -166,7 +171,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
+    <Folder Include="Configurations\" />
+    <Folder Include="IServices\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Repository\Repository.csproj">

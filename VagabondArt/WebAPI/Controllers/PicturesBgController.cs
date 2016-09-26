@@ -1,14 +1,13 @@
-﻿using Repository;
-using Repository.Repository;
+﻿using Repository.Repository;
 using System.Web.Http;
-
 namespace WebAPI.Controllers
+
 {
     public class PicturesBgController : ApiController
     {
         public IHttpActionResult Get(int id)
         {
-            PicturesBgRepository a = new PicturesBgRepository();
+            var a = new PicturesBgServices();
             var picture = a.GetByIdPictureBg(id);
             if (picture == null)
             {
@@ -19,7 +18,7 @@ namespace WebAPI.Controllers
 
         public IHttpActionResult Get()
         {
-            PicturesBgRepository a = new PicturesBgRepository();
+            PicturesBgServices a = new PicturesBgServices();
             return Ok(a.GetAllPicturesBg());
         }
     }

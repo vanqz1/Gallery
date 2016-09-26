@@ -8,7 +8,7 @@ namespace WebAPI.Controllers
     {
         public IHttpActionResult Get(int id)
         {
-            PicturesEnRepository a = new PicturesEnRepository();
+            PicturesEnServices a = new PicturesEnServices();
             var picture = a.GetByIdPictureEn(id);
             if (picture == null)
             {
@@ -19,7 +19,7 @@ namespace WebAPI.Controllers
 
         public IHttpActionResult Get()
         {
-            PicturesEnRepository a = new PicturesEnRepository();
+            PicturesEnServices a = new PicturesEnServices();
             return Ok(a.GetAllPicturesEn());
         }
     }
