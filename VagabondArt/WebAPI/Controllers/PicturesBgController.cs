@@ -5,6 +5,8 @@ namespace WebAPI.Controllers
 {
     public class PicturesBgController : ApiController
     {
+        [HttpGet]
+        [Route("api/bg/pictures/{id:int}")]
         public IHttpActionResult Get(int id)
         {
             var a = new PicturesBgServices();
@@ -16,6 +18,8 @@ namespace WebAPI.Controllers
             return Ok(a.GetByIdPictureBg(id));
         }
 
+        [HttpGet]
+        [Route("api/bg/pictures")]
         public IHttpActionResult Get()
         {
             PicturesBgServices a = new PicturesBgServices();

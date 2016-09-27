@@ -6,6 +6,8 @@ namespace WebAPI.Controllers
 {
     public class PicturesEnController : ApiController
     {
+        [HttpGet]
+        [Route("api/en/pictures/{id:int}")]
         public IHttpActionResult Get(int id)
         {
             PicturesEnServices a = new PicturesEnServices();
@@ -17,6 +19,9 @@ namespace WebAPI.Controllers
             return Ok(a.GetByIdPictureEn(id));
         }
 
+
+        [HttpGet]
+        [Route("api/en/pictures")]
         public IHttpActionResult Get()
         {
             PicturesEnServices a = new PicturesEnServices();
