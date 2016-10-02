@@ -117,3 +117,6 @@ C:\Users\vanqz\Desktop\Project\Gallery\VagabondArt\WebAPI\bin\SimpleInjector.Int
 C:\Users\vanqz\Desktop\Project\Gallery\VagabondArt\WebAPI\bin\SimpleInjector.xml
 C:\Users\vanqz\Desktop\Project\Gallery\VagabondArt\WebAPI\bin\SimpleInjector.Extensions.ExecutionContextScoping.xml
 C:\Users\vanqz\Desktop\Project\Gallery\VagabondArt\WebAPI\bin\SimpleInjector.Integration.WebApi.xml
+C:\Users\vanqz\Desktop\Project\Gallery\VagabondArt\WebAPI\obj\Debug\WebAPI.ResourceBg.resources
+C:\Users\vanqz\Desktop\Project\Gallery\VagabondArt\WebAPI\obj\Debug\WebAPI.csproj.GenerateResource.Cache
+C:\Users\vanqz\Desktop\Project\Gallery\VagabondArt\WebAPI\obj\Debug\WebAPI.ResourceEn.resources

@@ -1,6 +1,4 @@
-﻿using Repository.Repository;
-using Repository.RepositoryInterfaces;
-using System.Web.Http;
+﻿using System.Web.Http;
 using WebAPI.Interfaces;
 
 namespace WebAPI.Controllers

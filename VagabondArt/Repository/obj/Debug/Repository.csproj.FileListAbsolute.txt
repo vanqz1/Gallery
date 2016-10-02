@@ -25,3 +25,16 @@ C:\Users\vanqz\Desktop\Project\Gallery\VagabondArt\Repository\bin\Debug\Microsof
 C:\Users\vanqz\Desktop\Project\Gallery\VagabondArt\Repository\bin\Debug\Microsoft.Practices.Unity.xml
 C:\Users\vanqz\Desktop\Project\Gallery\VagabondArt\Repository\bin\Debug\Microsoft.Practices.Unity.Configuration.xml
 C:\Users\vanqz\Desktop\Project\Gallery\VagabondArt\Repository\bin\Debug\Microsoft.Practices.Unity.RegistrationByConvention.xml
+C:\Users\vanqz\Desktop\Project\Gallery\VagabondArt\Repository\bin\Debug\Repository.dll.config
+C:\Users\vanqz\Desktop\Project\Gallery\VagabondArt\Repository\bin\Debug\Newtonsoft.Json.dll
+C:\Users\vanqz\Desktop\Project\Gallery\VagabondArt\Repository\bin\Debug\SimpleInjector.dll
+C:\Users\vanqz\Desktop\Project\Gallery\VagabondArt\Repository\bin\Debug\SimpleInjector.Extensions.ExecutionContextScoping.dll
+C:\Users\vanqz\Desktop\Project\Gallery\VagabondArt\Repository\bin\Debug\SimpleInjector.Integration.WebApi.dll
+C:\Users\vanqz\Desktop\Project\Gallery\VagabondArt\Repository\bin\Debug\System.Net.Http.Formatting.dll
+C:\Users\vanqz\Desktop\Project\Gallery\VagabondArt\Repository\bin\Debug\System.Web.Http.dll
+C:\Users\vanqz\Desktop\Project\Gallery\VagabondArt\Repository\bin\Debug\Newtonsoft.Json.xml
+C:\Users\vanqz\Desktop\Project\Gallery\VagabondArt\Repository\bin\Debug\SimpleInjector.xml
+C:\Users\vanqz\Desktop\Project\Gallery\VagabondArt\Repository\bin\Debug\SimpleInjector.Extensions.ExecutionContextScoping.xml
+C:\Users\vanqz\Desktop\Project\Gallery\VagabondArt\Repository\bin\Debug\SimpleInjector.Integration.WebApi.xml
+C:\Users\vanqz\Desktop\Project\Gallery\VagabondArt\Repository\bin\Debug\System.Net.Http.Formatting.xml
+C:\Users\vanqz\Desktop\Project\Gallery\VagabondArt\Repository\bin\Debug\System.Web.Http.xml
