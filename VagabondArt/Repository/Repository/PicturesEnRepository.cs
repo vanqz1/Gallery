@@ -12,11 +12,7 @@ namespace Repository.Repository
         {
             m_PicturesEnModel = new PicturesEnDataSource();
         }
-
-        public PicturesEnRepository(PicturesEnDataSource picturesEnModel)
-        {
-            m_PicturesEnModel = picturesEnModel;
-        }
+        
         public PicturesEnModelRepository GetByIdPictureEn(int id)
         {
             var picture = m_PicturesEnModel.GetByIdPictureEN(id);

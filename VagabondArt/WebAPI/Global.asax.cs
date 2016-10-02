@@ -1,6 +1,12 @@
 ﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
+using Repository.RepositoryInterfaces;
 using System.Web.Http;
+using SimpleInjector;
+using SimpleInjector.Integration.WebApi;
+using WebAPI.Services;
+using Repository.Repository;
+using WebAPI.Interfaces;
 
 namespace WebAPI
 {
@@ -8,6 +14,24 @@ namespace WebAPI
     {
         protected void Application_Start()
         {
+            var container = new Container();
+            container.Options.DefaultScopedLifestyle = new WebApiRequestLifestyle();
+
+            // Register your types, for instance using the scoped lifestyle:
+            container.Register<IPicturesBgRepository, PicturesBgRepository>(Lifestyle.Scoped);
+            container.Register<IPicturesBgServices, PicturesBgServices>(Lifestyle.Scoped);
+
+            container.Register<IPicturesEnRepository, PicturesEnRepository>(Lifestyle.Scoped);
+            container.Register<IPicturesEnServices, PicturesEnServices>(Lifestyle.Scoped);
+
+            // This is an extension method from the integration package.
+            container.RegisterWebApiControllers(GlobalConfiguration.Configuration);
+
+            container.Verify();
+
+            GlobalConfiguration.Configuration.DependencyResolver =
+                new SimpleInjectorWebApiDependencyResolver(container);
+
             var formatters = GlobalConfiguration.Configuration.Formatters;
             var jsonFormatter = formatters.JsonFormatter;
             var settings = jsonFormatter.SerializerSettings;

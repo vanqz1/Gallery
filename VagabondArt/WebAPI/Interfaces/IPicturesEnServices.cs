@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using WebAPI.Models;
 
-namespace Repository.RepositoryInterfaces
+namespace WebAPI.Interfaces
 {
     public interface IPicturesEnServices
     {

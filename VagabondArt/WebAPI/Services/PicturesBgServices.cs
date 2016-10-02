@@ -1,29 +1,27 @@
-﻿using Repository.RepositoryInterfaces;
+﻿using Repository.Repository;
+using Repository.RepositoryInterfaces;
 using System.Collections.Generic;
+using WebAPI.Interfaces;
+using WebAPI.Models;
 
-namespace Repository.Repository
+namespace WebAPI.Services
 {
-    public class PicturesBgServices : IPicturesBgRepository
+    public class PicturesBgServices : IPicturesBgServices
     {
-        private readonly PicturesBgRepository m_PicturesBgModel;
-
-        public PicturesBgServices()
-        {
-            m_PicturesBgModel = new PicturesBgRepository();
-        }
-
-        public PicturesBgServices(PicturesBgRepository picturesBgModel)
+        private readonly IPicturesBgRepository m_PicturesBgModel;
+        
+        public PicturesBgServices(IPicturesBgRepository picturesBgModel)
         {
             m_PicturesBgModel = picturesBgModel;
         }
 
-        public PicturesBgModelRepository GetByIdPictureBg(int id)
+        public PicturesBg GetByIdPictureBg(int id)
         {
             var picture = m_PicturesBgModel.GetByIdPictureBg(id);
 
             if (picture == null) return null;
 
-            return new PicturesBgModelRepository
+            return new PicturesBg
             {
                 Id = picture.Id,
                 Title = picture.Title,
@@ -33,18 +31,18 @@ namespace Repository.Repository
                 Price = picture.Price,
                 IsSold = picture.IsSold,
                 PicturePath = picture.PicturePath
-
             };
         }
 
-        public List<PicturesBgModelRepository> GetAllPicturesBg()
+        public List<PicturesBg> GetAllPicturesBg()
         {
             var pictures = m_PicturesBgModel.GetAllPicturesBg();
-            var listOfPictures = new List<PicturesBgModelRepository>();
+            var listOfPictures = new List<PicturesBg>();
 
             foreach (var picture in pictures)
             {
-                listOfPictures.Add(new PicturesBgModelRepository {
+                listOfPictures.Add(new PicturesBg
+                {
                     Id = picture.Id,
                     Title = picture.Title,
                     Technics = picture.Technics,
@@ -55,7 +53,6 @@ namespace Repository.Repository
                     PicturePath = picture.PicturePath
                 });
             }
-
             return listOfPictures;
 
         }

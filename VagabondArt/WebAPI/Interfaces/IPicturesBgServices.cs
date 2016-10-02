@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using WebAPI.Models;
 
-namespace Repository.RepositoryInterfaces
+namespace WebAPI.Interfaces
 {
-    public interface IPicturesBg
+    public interface IPicturesBgServices
     {
         List<PicturesBg> GetAllPicturesBg();
         PicturesBg GetByIdPictureBg(int id);

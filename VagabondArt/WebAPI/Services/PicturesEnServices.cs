@@ -1,19 +1,15 @@
 ﻿using Repository.RepositoryInterfaces;
 using System.Collections.Generic;
+using WebAPI.Interfaces;
 using WebAPI.Models;
 
-namespace Repository.Repository
+namespace WebAPI.Services
 {
     public class PicturesEnServices : IPicturesEnServices
     {
-        private readonly PicturesEnRepository m_PicturesEnModel;
-
-        public PicturesEnServices()
-        {
-            m_PicturesEnModel = new PicturesEnRepository();
-        }
-
-        public PicturesEnServices(PicturesEnRepository picturesEnModel)
+        private readonly IPicturesEnRepository m_PicturesEnModel;
+        
+        public PicturesEnServices(IPicturesEnRepository picturesEnModel)
         {
             m_PicturesEnModel = picturesEnModel;
         }

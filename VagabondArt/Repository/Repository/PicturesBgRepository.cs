@@ -13,11 +13,6 @@ namespace Repository.Repository
             m_PicturesBgModel = new PicturesBgDataSource();
         }
 
-        public PicturesBgRepository(PicturesBgDataSource picturesBgModel)
-        {
-            m_PicturesBgModel = picturesBgModel;
-        }
-
         public PicturesBgModelRepository GetByIdPictureBg(int id)
         {
             var picture = m_PicturesBgModel.GetByIdPictureBG(id);
@@ -56,7 +51,6 @@ namespace Repository.Repository
                     PicturePath = picture.PicturePath
                 });
             }
-
             return listOfPictures;
 
         }
