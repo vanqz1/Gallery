@@ -14,15 +14,14 @@ namespace WebAPI
     {
         protected void Application_Start()
         {
+       
             var container = new Container();
             container.Options.DefaultScopedLifestyle = new WebApiRequestLifestyle();
 
             // Register your types, for instance using the scoped lifestyle:
-            container.Register<IPicturesBgRepository, PicturesBgRepository>(Lifestyle.Scoped);
-            container.Register<IPicturesBgServices, PicturesBgServices>(Lifestyle.Scoped);
 
-            container.Register<IPicturesEnRepository, PicturesEnRepository>(Lifestyle.Scoped);
-            container.Register<IPicturesEnServices, PicturesEnServices>(Lifestyle.Scoped);
+            container.Register<IPicturesRepository, PicturesRepository>(Lifestyle.Scoped);
+            container.Register<IPicturesService, PicturesService>(Lifestyle.Scoped);
 
             // This is an extension method from the integration package.
             container.RegisterWebApiControllers(GlobalConfiguration.Configuration);

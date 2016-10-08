@@ -72,10 +72,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataModel.edmx</DependentUpon>
     </Compile>
-    <Compile Include="DataSourceInterfaces\IPicturesEnDataSource.cs" />
-    <Compile Include="DataSourceInterfaces\IPicturesBgDataSource.cs" />
-    <Compile Include="DataSource\PicturesEnDataSource.cs" />
-    <Compile Include="DataSource\PicturesBgDataSource.cs" />
+    <Compile Include="DataSourceInterfaces\IPicturesDataSource.cs" />
+    <Compile Include="DataSource\PicturesDataSource.cs" />
+    <Compile Include="Enums\Languages.cs" />
+    <Compile Include="Model\Picture.cs" />
     <Compile Include="PicturesBG.cs">
       <DependentUpon>DataModel.tt</DependentUpon>
     </Compile>

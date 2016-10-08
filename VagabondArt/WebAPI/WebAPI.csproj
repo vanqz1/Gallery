@@ -176,15 +176,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="Controllers\PicturesEnController.cs" />
-    <Compile Include="Controllers\PicturesBgController.cs" />
-    <Compile Include="Controllers\ResourceEnController.cs" />
-    <Compile Include="Controllers\ResourcesBgController.cs" />
+    <Compile Include="Controllers\PicturesController.cs" />
+    <Compile Include="Controllers\ResourceController.cs" />
+    <Compile Include="Enums\Languages.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Interfaces\IPicturesBgServices.cs" />
-    <Compile Include="Interfaces\IPicturesEnServices.cs" />
+    <Compile Include="Interfaces\IPicturesService.cs" />
+    <Compile Include="Models\Picture.cs" />
     <Compile Include="Models\PicturesBg.cs" />
     <Compile Include="Models\PicturesEn.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -198,8 +197,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ResourceEn.resx</DependentUpon>
     </Compile>
-    <Compile Include="Services\PicturesBgServices.cs" />
-    <Compile Include="Services\PicturesEnServices.cs" />
+    <Compile Include="Services\PicturesService.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -219,6 +217,10 @@
     <Folder Include="IServices\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\DataSource\DataSource.csproj">
+      <Project>{FC4FDF40-E81B-4D6A-970A-CDEA81B564EF}</Project>
+      <Name>DataSource</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Repository\Repository.csproj">
       <Project>{B9A5BC00-4B31-4516-B83A-8A9E88AF61E7}</Project>
       <Name>Repository</Name>
