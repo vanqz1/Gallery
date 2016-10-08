@@ -65,7 +65,6 @@ namespace DataSource.DataSource
                 case Languages.Bulgarian:
 
                     var pictureBg = GetByIdPictureBg(id);
-
                     if (pictureBg == null) return null;
 
                     thePicture = new Picture
@@ -84,7 +83,6 @@ namespace DataSource.DataSource
                 case Languages.English:
 
                     var pictureEn = GetByIdPictureEn(id);
-
                     if (pictureEn == null) return null;
 
                     thePicture = new Picture

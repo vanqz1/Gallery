@@ -1,12 +1,7 @@
-﻿
-using DataSource;
-using DataSource.DataSource;
-using DataSource.DataSourceInterfaces;
-using System;
+﻿using DataSource.DataSourceInterfaces;
 using System.Collections.Generic;
 using WebAPI.Interfaces;
 using WebAPI.Models;
-using WebAPI.Services;
 
 namespace WebAPI.Services
 {
@@ -14,9 +9,9 @@ namespace WebAPI.Services
     {
         private readonly IPicturesDataSource m_PicturesRepository;
 
-        public PicturesService()
+        public PicturesService(IPicturesDataSource picturesRepository)
         {
-            m_PicturesRepository = new PicturesDataSource();
+            m_PicturesRepository = picturesRepository;
         }
 
         public List<Picture> GetAllPictures(EnumLanguages language)
