@@ -2,11 +2,10 @@
 using System.Web.Http;
 using Unity.WebApi;
 
-[assembly: PreApplicationStartMethod(typeof(Repository.ConfigurationInjection.UnityWebActivator), "Start")]
+[assembly: PreApplicationStartMethod(typeof(Repository.App_Start.UnityWebActivator), "Start")]
 
-namespace Repository.ConfigurationInjection
+namespace Repository.App_Start
 {
-
     /// <summary>Provides the bootstrapping for integrating Unity with ASP.NET MVC.</summary>
     public static class UnityWebActivator
         {

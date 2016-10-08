@@ -1,4 +1,5 @@
-﻿using DataSource.DataSourceInterfaces;
+﻿using AutoMapper;
+using DataSource.DataSourceInterfaces;
 using System.Collections.Generic;
 using WebAPI.Interfaces;
 using WebAPI.Models;

@@ -1,6 +1,5 @@
 ﻿using System.Web.Http;
 using WebAPI.Interfaces;
-using WebAPI.Services;
 
 namespace WebAPI.Controllers
 {

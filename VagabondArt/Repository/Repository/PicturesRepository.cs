@@ -2,17 +2,19 @@
 using System.Collections.Generic;
 using Repository.RepositoryModels;
 using DataSource.DataSourceInterfaces;
-using DataSource.DataSource;
+using AutoMapper;
 
 namespace Repository.Repository
 {
     public class PicturesRepository : IPicturesRepository
     {
         private readonly IPicturesDataSource m_PicturesDataSource;
+        private readonly IMapper m_Mapper;
 
-        public PicturesRepository()
+        public PicturesRepository(IPicturesDataSource picturesDataSource, IMapper mapper)
         {
-            m_PicturesDataSource = new PicturesDataSource();
+            m_PicturesDataSource = picturesDataSource;
+            m_Mapper = mapper;
         }
 
         public List<PicturesModelRepository> GetAllPictures(int languageNum)
@@ -23,17 +25,7 @@ namespace Repository.Repository
 
             foreach (var picture in pictures)
             {
-                allPictures.Add(new PicturesModelRepository
-                {
-                    Id = picture.Id,
-                    Title = picture.Title,
-                    Technics = picture.Technics,
-                    AuthorName = picture.AuthorName,
-                    Size = picture.Size,
-                    Price = picture.Price,
-                    IsSold = picture.IsSold,
-                    PicturePath = picture.PicturePath
-                });
+                allPictures.Add(m_Mapper.Map<PicturesModelRepository>(picture));
             }
 
             return allPictures;
@@ -45,17 +37,7 @@ namespace Repository.Repository
 
             if (dataSourcePicture == null) return null;
 
-            return new PicturesModelRepository
-            {
-                Id = dataSourcePicture.Id,
-                Title = dataSourcePicture.Title,
-                Technics = dataSourcePicture.Technics,
-                AuthorName = dataSourcePicture.AuthorName,
-                Size = dataSourcePicture.Size,
-                Price = dataSourcePicture.Price,
-                IsSold = dataSourcePicture.IsSold,
-                PicturePath = dataSourcePicture.PicturePath
-            };
+            return m_Mapper.Map<PicturesModelRepository>(dataSourcePicture);
         }
     }
 }

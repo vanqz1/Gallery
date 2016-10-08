@@ -1,11 +1,12 @@
-﻿using DataSource.DataSource;
+﻿using AutoMapper;
+using DataSource.DataSource;
 using DataSource.DataSourceInterfaces;
 using Microsoft.Practices.Unity;
 using Repository.Repository;
 using Repository.RepositoryInterfaces;
 using System;
 
-namespace Repository.ConfigurationInjection
+namespace Repository.App_Start
 {
     public class UnityConfig
     {
@@ -37,6 +38,7 @@ namespace Repository.ConfigurationInjection
             
             container.RegisterType<IPicturesRepository, PicturesRepository>();
             container.RegisterType<IPicturesDataSource, PicturesDataSource>();
+            container.RegisterType<IMapper, Mapper>();
         }
     }
 }

@@ -121,3 +121,5 @@ C:\Users\vanqz\Desktop\Project\Gallery\VagabondArt\WebAPI\obj\Debug\WebAPI.Resou
 C:\Users\vanqz\Desktop\Project\Gallery\VagabondArt\WebAPI\obj\Debug\WebAPI.csproj.GenerateResource.Cache
 C:\Users\vanqz\Desktop\Project\Gallery\VagabondArt\WebAPI\obj\Debug\WebAPI.dll
 C:\Users\vanqz\Desktop\Project\Gallery\VagabondArt\WebAPI\obj\Debug\WebAPI.pdb
+C:\Users\vanqz\Desktop\Project\Gallery\VagabondArt\WebAPI\bin\AutoMapper.dll
+C:\Users\vanqz\Desktop\Project\Gallery\VagabondArt\WebAPI\bin\AutoMapper.xml
