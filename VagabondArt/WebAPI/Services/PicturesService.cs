@@ -1,5 +1,4 @@
-﻿using AutoMapper;
-using DataSource.DataSourceInterfaces;
+﻿using DataSource.DataSourceInterfaces;
 using System.Collections.Generic;
 using WebAPI.Interfaces;
 using WebAPI.Models;
@@ -15,16 +14,15 @@ namespace WebAPI.Services
             m_PicturesRepository = picturesRepository;
         }
 
-        public List<Picture> GetAllPictures(EnumLanguages language)
+        public IEnumerable<Picture> GetAllPictures(EnumLanguages language)
         {
             var numLanguage = (int)language;
 
             var pictures = m_PicturesRepository.GetAllPictures(numLanguage);
-            var listOfPictures = new List<Picture>();
 
             foreach (var picture in pictures)
             {
-                listOfPictures.Add(new Picture
+                yield return new Picture
                 {
                     Id = picture.Id,
                     Title = picture.Title,
@@ -34,9 +32,8 @@ namespace WebAPI.Services
                     Price = picture.Price,
                     IsSold = picture.IsSold,
                     PicturePath = picture.PicturePath
-                });
+                };
             }
-            return listOfPictures;
         }
 
         public Picture GetByIdPicture(int id, EnumLanguages language)

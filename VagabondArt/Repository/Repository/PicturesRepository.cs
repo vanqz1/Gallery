@@ -17,18 +17,16 @@ namespace Repository.Repository
             m_Mapper = mapper;
         }
 
-        public List<PicturesModelRepository> GetAllPictures(int languageNum)
+        public IEnumerable<PicturesModelRepository> GetAllPictures(int languageNum)
         {
-            List<PicturesModelRepository> allPictures = new List<PicturesModelRepository>();
 
             var pictures = m_PicturesDataSource.GetAllPictures(languageNum);
 
             foreach (var picture in pictures)
             {
-                allPictures.Add(m_Mapper.Map<PicturesModelRepository>(picture));
+                yield return m_Mapper.Map<PicturesModelRepository>(picture);
             }
-
-            return allPictures;
+            
         }
 
         public PicturesModelRepository GetByIdPicture(int id, int languageNum)

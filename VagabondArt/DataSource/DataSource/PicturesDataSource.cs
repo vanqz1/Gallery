@@ -7,18 +7,17 @@ namespace DataSource.DataSource
 {
     public class PicturesDataSource : IPicturesDataSource
     {
-        public List<Picture> GetAllPictures(int languageNum)
+        public IEnumerable<Picture> GetAllPictures(int languageNum)
         {
             Languages language = (Languages)languageNum;
-
-            List<Picture> pictures = new List<Picture>();
+            
             switch (language)
             {
                 case Languages.Bulgarian:
 
                     foreach(var picture in GetAllPicturesBg())
                     {
-                        pictures.Add(new Picture
+                        yield return new Picture
                         {
                             Id = picture.Id,
                             Title = picture.Title,
@@ -28,14 +27,14 @@ namespace DataSource.DataSource
                             Price = picture.Price,
                             IsSold = picture.IsSold,
                             PicturePath = picture.PicturePath
-                        });
+                        };
                     }
                     break;
                 case Languages.English:
 
                     foreach (var picture in GetAllPicturesEn())
                     {
-                        pictures.Add(new Picture
+                        yield return new Picture
                         {
                             Id = picture.Id,
                             Title = picture.Title,
@@ -45,12 +44,10 @@ namespace DataSource.DataSource
                             Price = picture.Price,
                             IsSold = picture.IsSold,
                             PicturePath = picture.PicturePath
-                        });
+                        };
                     }
                     break;
             }
-
-            return pictures;
         }
 
         public Picture GetByIdPicture(int id, int languageNum)
@@ -101,18 +98,15 @@ namespace DataSource.DataSource
             return thePicture;
         }
 
-        private List<PicturesBG> GetAllPicturesBg()
+        private IEnumerable<PicturesBG> GetAllPicturesBg()
         {
-            var pictures = new List<PicturesBG>();
-            var listOfPictures = new List<PicturesBG>();
-
             using (var contex = new VagabondEntities())
             {
-                pictures = contex.PicturesBGs.ToList();
+                var pictures = contex.PicturesBGs.ToList();
 
                 foreach (var picture in pictures)
                 {
-                    listOfPictures.Add(new PicturesBG
+                    yield return new PicturesBG
                     {
                         Id = picture.Id,
                         Title = picture.Title,
@@ -123,18 +117,16 @@ namespace DataSource.DataSource
                         AuthorsBG = picture.AuthorsBG,
                         IsSold = picture.IsSold,
                         PicturePath = picture.PicturePath
-                    });
+                    };
                 }
-                return listOfPictures;
             }
         }
 
         private PicturesBG GetByIdPictureBg(int id)
         {
-            PicturesBG picture = new PicturesBG();
             using (var contex = new VagabondEntities())
             {
-                picture = contex.PicturesBGs.FirstOrDefault(s => s.Id == id);
+                var picture = contex.PicturesBGs.FirstOrDefault(s => s.Id == id);
 
                 if (picture == null) return null;
 
@@ -153,18 +145,15 @@ namespace DataSource.DataSource
             }
         }
 
-        private List<PicturesEN> GetAllPicturesEn()
+        private IEnumerable<PicturesEN> GetAllPicturesEn()
         {
-            var pictures = new List<PicturesEN>();
-            var listOfPictures = new List<PicturesEN>();
-
             using (var contex = new VagabondEntities())
             {
-                pictures = contex.PicturesENs.ToList();
+                var pictures = contex.PicturesENs.ToList();
 
                 foreach (var picture in pictures)
                 {
-                    listOfPictures.Add(new PicturesEN
+                    yield return new PicturesEN
                     {
                         Id = picture.Id,
                         Title = picture.Title,
@@ -175,9 +164,8 @@ namespace DataSource.DataSource
                         AuthorsEN = picture.AuthorsEN,
                         IsSold = picture.IsSold,
                         PicturePath = picture.PicturePath
-                    });
+                    };
                 }
-                return listOfPictures;
             }
         }
 

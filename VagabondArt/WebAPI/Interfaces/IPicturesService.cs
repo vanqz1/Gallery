@@ -9,7 +9,7 @@ namespace WebAPI.Interfaces
 {
     public interface IPicturesService
     {
-        List<Picture> GetAllPictures(EnumLanguages language);
+        IEnumerable<Picture> GetAllPictures(EnumLanguages language);
         Picture GetByIdPicture(int id, EnumLanguages language);
     }
 }
