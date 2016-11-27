@@ -117,10 +117,58 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="angelAngelov" xml:space="preserve">
+    <value>Angel Angelov</value>
+  </data>
+  <data name="Author" xml:space="preserve">
+    <value>Author</value>
+  </data>
+  <data name="Buy" xml:space="preserve">
+    <value>Buy</value>
+  </data>
+  <data name="Contacts" xml:space="preserve">
+    <value>Contacts</value>
+  </data>
   <data name="Foundation" xml:space="preserve">
     <value>Foundation</value>
   </data>
   <data name="Home" xml:space="preserve">
     <value>Home</value>
+  </data>
+  <data name="HomeContent" xml:space="preserve">
+    <value>Content of home page</value>
+  </data>
+  <data name="HomeSubtitle" xml:space="preserve">
+    <value>Subtitle of home page</value>
+  </data>
+  <data name="HomeTitle" xml:space="preserve">
+    <value>Title of home page</value>
+  </data>
+  <data name="InStock" xml:space="preserve">
+    <value>In stock</value>
+  </data>
+  <data name="Pictures" xml:space="preserve">
+    <value>Pictures</value>
+  </data>
+  <data name="PicturesSubtitle" xml:space="preserve">
+    <value>Pictures</value>
+  </data>
+  <data name="PicturesTitle" xml:space="preserve">
+    <value>Pictures</value>
+  </data>
+  <data name="Price" xml:space="preserve">
+    <value>Price</value>
+  </data>
+  <data name="Size" xml:space="preserve">
+    <value>Size</value>
+  </data>
+  <data name="SoldOut" xml:space="preserve">
+    <value>Sold out</value>
+  </data>
+  <data name="Technics" xml:space="preserve">
+    <value>Technics</value>
+  </data>
+  <data name="Vagabond" xml:space="preserve">
+    <value>Vagabond</value>
   </data>
 </root>

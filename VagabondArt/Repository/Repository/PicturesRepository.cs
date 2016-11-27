@@ -19,7 +19,6 @@ namespace Repository.Repository
 
         public IEnumerable<PicturesModelRepository> GetAllPictures(int languageNum)
         {
-
             var pictures = m_PicturesDataSource.GetAllPictures(languageNum);
 
             foreach (var picture in pictures)

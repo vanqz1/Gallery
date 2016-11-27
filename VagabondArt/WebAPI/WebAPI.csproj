@@ -180,6 +180,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\EnableCorsAttribute.cs" />
     <Compile Include="Controllers\PicturesController.cs" />
     <Compile Include="Controllers\ResourceController.cs" />
     <Compile Include="Enums\Languages.cs" />

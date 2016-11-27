@@ -117,6 +117,15 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="angelAngelov" xml:space="preserve">
+    <value>Ангел Ангелов</value>
+  </data>
+  <data name="Author" xml:space="preserve">
+    <value>Автор</value>
+  </data>
+  <data name="Buy" xml:space="preserve">
+    <value>Купи</value>
+  </data>
   <data name="Contacts" xml:space="preserve">
     <value>Контакти</value>
   </data>
@@ -126,8 +135,38 @@
   <data name="Home" xml:space="preserve">
     <value>Начало</value>
   </data>
+  <data name="HomeContent" xml:space="preserve">
+    <value>Съдържание на начална страница</value>
+  </data>
+  <data name="HomeSubtitle" xml:space="preserve">
+    <value>Подзаглавие на начална страница</value>
+  </data>
+  <data name="HomeTitle" xml:space="preserve">
+    <value>Заглавие на начална страница</value>
+  </data>
+  <data name="InStock" xml:space="preserve">
+    <value>В наличност</value>
+  </data>
   <data name="Pictures" xml:space="preserve">
     <value>Картини</value>
+  </data>
+  <data name="PicturesSubtitle" xml:space="preserve">
+    <value>Картини Подзаглавие</value>
+  </data>
+  <data name="PicturesTitle" xml:space="preserve">
+    <value>Картини Заглавие</value>
+  </data>
+  <data name="Price" xml:space="preserve">
+    <value>Цена</value>
+  </data>
+  <data name="Size" xml:space="preserve">
+    <value>Размер</value>
+  </data>
+  <data name="SoldOut" xml:space="preserve">
+    <value>Продадена</value>
+  </data>
+  <data name="Technics" xml:space="preserve">
+    <value>Техники</value>
   </data>
   <data name="Vagabond" xml:space="preserve">
     <value>Вагабонд</value>

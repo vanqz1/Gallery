@@ -61,6 +61,33 @@ namespace WebAPI {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Ангел Ангелов.
+        /// </summary>
+        internal static string angelAngelov {
+            get {
+                return ResourceManager.GetString("angelAngelov", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Автор.
+        /// </summary>
+        internal static string Author {
+            get {
+                return ResourceManager.GetString("Author", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Купи.
+        /// </summary>
+        internal static string Buy {
+            get {
+                return ResourceManager.GetString("Buy", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Контакти.
         /// </summary>
         internal static string Contacts {
@@ -88,11 +115,101 @@ namespace WebAPI {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Съдържание на начална страница.
+        /// </summary>
+        internal static string HomeContent {
+            get {
+                return ResourceManager.GetString("HomeContent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Подзаглавие на начална страница.
+        /// </summary>
+        internal static string HomeSubtitle {
+            get {
+                return ResourceManager.GetString("HomeSubtitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Заглавие на начална страница.
+        /// </summary>
+        internal static string HomeTitle {
+            get {
+                return ResourceManager.GetString("HomeTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to В наличност.
+        /// </summary>
+        internal static string InStock {
+            get {
+                return ResourceManager.GetString("InStock", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Картини.
         /// </summary>
         internal static string Pictures {
             get {
                 return ResourceManager.GetString("Pictures", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Картини Подзаглавие.
+        /// </summary>
+        internal static string PicturesSubtitle {
+            get {
+                return ResourceManager.GetString("PicturesSubtitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Картини Заглавие.
+        /// </summary>
+        internal static string PicturesTitle {
+            get {
+                return ResourceManager.GetString("PicturesTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Цена.
+        /// </summary>
+        internal static string Price {
+            get {
+                return ResourceManager.GetString("Price", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Размер.
+        /// </summary>
+        internal static string Size {
+            get {
+                return ResourceManager.GetString("Size", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Продадена.
+        /// </summary>
+        internal static string SoldOut {
+            get {
+                return ResourceManager.GetString("SoldOut", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Техники.
+        /// </summary>
+        internal static string Technics {
+            get {
+                return ResourceManager.GetString("Technics", resourceCulture);
             }
         }
         
