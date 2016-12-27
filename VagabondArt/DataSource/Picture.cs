@@ -12,17 +12,19 @@ namespace DataSource
     using System;
     using System.Collections.Generic;
     
-    public partial class PicturesBG
+    public partial class Picture
     {
         public int Id { get; set; }
-        public string Title { get; set; }
-        public string Technics { get; set; }
+        public string TitleBg { get; set; }
+        public string TechnicsBg { get; set; }
         public string Size { get; set; }
-        public Nullable<int> Author { get; set; }
+        public int Author { get; set; }
         public decimal Price { get; set; }
         public bool IsSold { get; set; }
         public string PicturePath { get; set; }
+        public string TitleEn { get; set; }
+        public string TechnicsEn { get; set; }
     
-        public virtual AuthorsBG AuthorsBG { get; set; }
+        public virtual Author PicturesAuthor { get; set; }
     }
 }

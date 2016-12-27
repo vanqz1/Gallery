@@ -12,18 +12,19 @@ namespace DataSource
     using System;
     using System.Collections.Generic;
     
-    public partial class AuthorsEN
+    public partial class Author
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public AuthorsEN()
+        public Author()
         {
-            this.PicturesENs = new HashSet<PicturesEN>();
+            this.Pictures = new HashSet<Picture>();
         }
     
         public int Id { get; set; }
-        public string Name { get; set; }
+        public string NameBg { get; set; }
+        public string NameEn { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<PicturesEN> PicturesENs { get; set; }
+        public virtual ICollection<Picture> Pictures { get; set; }
     }
 }

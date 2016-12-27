@@ -1,81 +1,46 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="VagabondModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-  <EntityType Name="AuthorsBG">
+  <EntityType Name="Authors">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Name" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="NameBg" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="NameEn" Type="nvarchar" MaxLength="250" Nullable="false" />
   </EntityType>
-  <EntityType Name="AuthorsEN">
+  <EntityType Name="Pictures">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Name" Type="nvarchar" MaxLength="250" Nullable="false" />
-  </EntityType>
-  <EntityType Name="PicturesBG">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Title" Type="nvarchar" MaxLength="250" Nullable="false" />
-    <Property Name="Technics" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="TitleBg" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="TechnicsBg" Type="nvarchar" MaxLength="250" Nullable="false" />
     <Property Name="Size" Type="nvarchar" MaxLength="250" Nullable="false" />
     <Property Name="Author" Type="int" />
     <Property Name="Price" Type="decimal" Precision="10" Scale="2" Nullable="false" />
     <Property Name="IsSold" Type="bit" Nullable="false" />
     <Property Name="PicturePath" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="TitleEn" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="TechnicsEn" Type="nvarchar" MaxLength="250" Nullable="false" />
   </EntityType>
-  <EntityType Name="PicturesEN">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Title" Type="nvarchar" MaxLength="250" Nullable="false" />
-    <Property Name="Technics" Type="nvarchar" MaxLength="250" Nullable="false" />
-    <Property Name="Size" Type="nvarchar" MaxLength="250" Nullable="false" />
-    <Property Name="Author" Type="int" Nullable="false" />
-    <Property Name="Price" Type="decimal" Precision="10" Scale="2" Nullable="false" />
-    <Property Name="IsSold" Type="bit" Nullable="false" />
-    <Property Name="PicturePath" Type="nvarchar" MaxLength="250" Nullable="false" />
-  </EntityType>
-  <Association Name="FK__PicturesB__Autho__1BFD2C07">
-    <End Role="AuthorsBG" Type="Self.AuthorsBG" Multiplicity="0..1" />
-    <End Role="PicturesBG" Type="Self.PicturesBG" Multiplicity="*" />
+  <Association Name="FK__Pictures__Author__403A8C7D">
+    <End Role="Authors" Type="Self.Authors" Multiplicity="0..1" />
+    <End Role="Pictures" Type="Self.Pictures" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="AuthorsBG">
+      <Principal Role="Authors">
         <PropertyRef Name="Id" />
       </Principal>
-      <Dependent Role="PicturesBG">
-        <PropertyRef Name="Author" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK__PicturesE__Autho__20C1E124">
-    <End Role="AuthorsEN" Type="Self.AuthorsEN" Multiplicity="1" />
-    <End Role="PicturesEN" Type="Self.PicturesEN" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="AuthorsEN">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="PicturesEN">
+      <Dependent Role="Pictures">
         <PropertyRef Name="Author" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <EntityContainer Name="VagabondModelStoreContainer">
-    <EntitySet Name="AuthorsBG" EntityType="Self.AuthorsBG" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="AuthorsEN" EntityType="Self.AuthorsEN" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="PicturesBG" EntityType="Self.PicturesBG" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="PicturesEN" EntityType="Self.PicturesEN" Schema="dbo" store:Type="Tables" />
-    <AssociationSet Name="FK__PicturesB__Autho__1BFD2C07" Association="Self.FK__PicturesB__Autho__1BFD2C07">
-      <End Role="AuthorsBG" EntitySet="AuthorsBG" />
-      <End Role="PicturesBG" EntitySet="PicturesBG" />
-    </AssociationSet>
-    <AssociationSet Name="FK__PicturesE__Autho__20C1E124" Association="Self.FK__PicturesE__Autho__20C1E124">
-      <End Role="AuthorsEN" EntitySet="AuthorsEN" />
-      <End Role="PicturesEN" EntitySet="PicturesEN" />
+    <EntitySet Name="Authors" EntityType="Self.Authors" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Pictures" EntityType="Self.Pictures" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Pictures__Author__403A8C7D" Association="Self.FK__Pictures__Author__403A8C7D">
+      <End Role="Authors" EntitySet="Authors" />
+      <End Role="Pictures" EntitySet="Pictures" />
     </AssociationSet>
   </EntityContainer>
 </Schema>

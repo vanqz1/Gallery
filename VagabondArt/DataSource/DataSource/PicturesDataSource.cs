@@ -7,7 +7,7 @@ namespace DataSource.DataSource
 {
     public class PicturesDataSource : IPicturesDataSource
     {
-        public IEnumerable<Picture> GetAllPictures(int languageNum)
+        public IEnumerable<PictureModel> GetAllPictures(int languageNum)
         {
             Languages language = (Languages)languageNum;
             
@@ -17,12 +17,12 @@ namespace DataSource.DataSource
 
                     foreach(var picture in GetAllPicturesBg())
                     {
-                        yield return new Picture
+                        yield return new PictureModel
                         {
                             Id = picture.Id,
-                            Title = picture.Title,
-                            Technics = picture.Technics,
-                            AuthorName = picture.AuthorsBG.Name,
+                            Title = picture.TitleBg,
+                            Technics = picture.TechnicsBg,
+                            AuthorName = picture.PicturesAuthor.NameBg,
                             Size = picture.Size,
                             Price = picture.Price,
                             IsSold = picture.IsSold,
@@ -34,12 +34,12 @@ namespace DataSource.DataSource
 
                     foreach (var picture in GetAllPicturesEn())
                     {
-                        yield return new Picture
+                        yield return new PictureModel
                         {
                             Id = picture.Id,
-                            Title = picture.Title,
-                            Technics = picture.Technics,
-                            AuthorName = picture.AuthorsEN.Name,
+                            Title = picture.TitleEn,
+                            Technics = picture.TechnicsEn,
+                            AuthorName = picture.PicturesAuthor.NameEn,
                             Size = picture.Size,
                             Price = picture.Price,
                             IsSold = picture.IsSold,
@@ -50,11 +50,11 @@ namespace DataSource.DataSource
             }
         }
 
-        public Picture GetByIdPicture(int id, int languageNum)
+        public PictureModel GetByIdPicture(int id, int languageNum)
         {
             Languages language = (Languages)languageNum;
 
-            var thePicture = new Picture();
+            var thePicture = new PictureModel();
 
             switch (language)
             {
@@ -63,12 +63,12 @@ namespace DataSource.DataSource
                     var pictureBg = GetByIdPictureBg(id);
                     if (pictureBg == null) return null;
 
-                    thePicture = new Picture
+                    thePicture = new PictureModel
                     {
                         Id = pictureBg.Id,
-                        Title = pictureBg.Title,
-                        Technics = pictureBg.Technics,
-                        AuthorName = pictureBg.AuthorsBG.Name,
+                        Title = pictureBg.TitleBg,
+                        Technics = pictureBg.TechnicsBg,
+                        AuthorName = pictureBg.PicturesAuthor.NameBg,
                         Size = pictureBg.Size,
                         Price = pictureBg.Price,
                         IsSold = pictureBg.IsSold,
@@ -81,12 +81,12 @@ namespace DataSource.DataSource
                     var pictureEn = GetByIdPictureEn(id);
                     if (pictureEn == null) return null;
 
-                    thePicture = new Picture
+                    thePicture = new PictureModel
                     {
                         Id = pictureEn.Id,
-                        Title = pictureEn.Title,
-                        Technics = pictureEn.Technics,
-                        AuthorName = pictureEn.AuthorsEN.Name,
+                        Title = pictureEn.TitleEn,
+                        Technics = pictureEn.TechnicsEn,
+                        AuthorName = pictureEn.PicturesAuthor.NameEn,
                         Size = pictureEn.Size,
                         Price = pictureEn.Price,
                         IsSold = pictureEn.IsSold,
@@ -98,23 +98,23 @@ namespace DataSource.DataSource
             return thePicture;
         }
 
-        private IEnumerable<PicturesBG> GetAllPicturesBg()
+        private IEnumerable<Picture> GetAllPicturesBg()
         {
             using (var contex = new VagabondEntities())
             {
-                var pictures = contex.PicturesBGs.ToList();
+                var pictures = contex.Pictures.ToList();
 
                 foreach (var picture in pictures)
                 {
-                    yield return new PicturesBG
+                    yield return new Picture
                     {
                         Id = picture.Id,
-                        Title = picture.Title,
-                        Technics = picture.Technics,
+                        TitleBg = picture.TitleBg,
+                        TechnicsBg = picture.TechnicsBg,
                         Author = picture.Author,
                         Size = picture.Size,
                         Price = picture.Price,
-                        AuthorsBG = picture.AuthorsBG,
+                        PicturesAuthor = picture.PicturesAuthor,
                         IsSold = picture.IsSold,
                         PicturePath = picture.PicturePath
                     };
@@ -122,46 +122,68 @@ namespace DataSource.DataSource
             }
         }
 
-        private PicturesBG GetByIdPictureBg(int id)
+        private Picture GetByIdPictureBg(int id)
         {
             using (var contex = new VagabondEntities())
             {
-                var picture = contex.PicturesBGs.FirstOrDefault(s => s.Id == id);
+                var picture = contex.Pictures.FirstOrDefault(s => s.Id == id);
 
                 if (picture == null) return null;
 
-                return new PicturesBG
+                return new Picture
                 {
                     Id = picture.Id,
-                    Title = picture.Title,
-                    Technics = picture.Technics,
+                    TitleBg = picture.TitleBg,
+                    TechnicsBg = picture.TechnicsBg,
                     Author = picture.Author,
                     Size = picture.Size,
                     Price = picture.Price,
-                    AuthorsBG = picture.AuthorsBG,
+                    PicturesAuthor = picture.PicturesAuthor,
                     IsSold = picture.IsSold,
                     PicturePath = picture.PicturePath
                 };
             }
         }
 
-        private IEnumerable<PicturesEN> GetAllPicturesEn()
+        public void AddNewPicture(NewPictureModel picture)
         {
             using (var contex = new VagabondEntities())
             {
-                var pictures = contex.PicturesENs.ToList();
+                contex.Pictures.Add(new Picture
+                {
+                    TitleBg = picture.TitleBg,
+                    TitleEn = picture.TitleEn,
+                    TechnicsBg = picture.TechnicsBg,
+                    TechnicsEn = picture.TechnicsEn,
+                    IsSold = picture.IsSold,
+                    Price = picture.Price,
+                    Size = picture.Size,
+                    PicturePath = picture.Path,
+                    Author = picture.Author
+
+                });
+
+                contex.SaveChanges();
+            }
+        }
+
+        private IEnumerable<Picture> GetAllPicturesEn()
+        {
+            using (var contex = new VagabondEntities())
+            {
+                var pictures = contex.Pictures.ToList();
 
                 foreach (var picture in pictures)
                 {
-                    yield return new PicturesEN
+                    yield return new Picture
                     {
                         Id = picture.Id,
-                        Title = picture.Title,
-                        Technics = picture.Technics,
+                        TitleEn = picture.TitleEn,
+                        TechnicsEn = picture.TechnicsEn,
                         Author = picture.Author,
                         Size = picture.Size,
                         Price = picture.Price,
-                        AuthorsEN = picture.AuthorsEN,
+                        PicturesAuthor = picture.PicturesAuthor,
                         IsSold = picture.IsSold,
                         PicturePath = picture.PicturePath
                     };
@@ -169,22 +191,22 @@ namespace DataSource.DataSource
             }
         }
 
-        private PicturesEN GetByIdPictureEn(int id)
+        private Picture GetByIdPictureEn(int id)
         {
-            PicturesEN picture = new PicturesEN();
+            var picture = new Picture();
             using (var contex = new VagabondEntities())
             {
-                picture = contex.PicturesENs.FirstOrDefault(s => s.Id == id);
+                picture = contex.Pictures.FirstOrDefault(s => s.Id == id);
                 if (picture == null) return null;
-                return new PicturesEN
+                return new Picture
                 {
                     Id = picture.Id,
-                    Title = picture.Title,
-                    Technics = picture.Technics,
+                    TitleEn = picture.TitleEn,
+                    TechnicsEn = picture.TechnicsEn,
                     Author = picture.Author,
                     Size = picture.Size,
                     Price = picture.Price,
-                    AuthorsEN = picture.AuthorsEN,
+                    PicturesAuthor = picture.PicturesAuthor,
                     IsSold = picture.IsSold,
                     PicturePath = picture.PicturePath
                 };

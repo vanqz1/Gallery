@@ -2,19 +2,17 @@
 using System.Collections.Generic;
 using Repository.RepositoryModels;
 using DataSource.DataSourceInterfaces;
-using AutoMapper;
+using DataSource.Model;
 
 namespace Repository.Repository
 {
     public class PicturesRepository : IPicturesRepository
     {
         private readonly IPicturesDataSource m_PicturesDataSource;
-        private readonly IMapper m_Mapper;
 
-        public PicturesRepository(IPicturesDataSource picturesDataSource, IMapper mapper)
+        public PicturesRepository(IPicturesDataSource picturesDataSource)
         {
             m_PicturesDataSource = picturesDataSource;
-            m_Mapper = mapper;
         }
 
         public IEnumerable<PicturesModelRepository> GetAllPictures(int languageNum)
@@ -23,18 +21,55 @@ namespace Repository.Repository
 
             foreach (var picture in pictures)
             {
-                yield return m_Mapper.Map<PicturesModelRepository>(picture);
+                yield return new PicturesModelRepository {
+                    Title = picture.Title,
+                    Technics = picture.Technics,
+                    AuthorName = picture.AuthorName,
+                    Id = picture.Id,
+                    IsSold = picture.IsSold,
+                    PicturePath = picture.PicturePath,
+                    Price = picture.Price,
+                    Size = picture.Size
+                };
             }
             
         }
 
         public PicturesModelRepository GetByIdPicture(int id, int languageNum)
         {
-            var dataSourcePicture = m_PicturesDataSource.GetByIdPicture(id, languageNum);
+            var picture = m_PicturesDataSource.GetByIdPicture(id, languageNum);
 
-            if (dataSourcePicture == null) return null;
+            if (picture == null) return null;
 
-            return m_Mapper.Map<PicturesModelRepository>(dataSourcePicture);
+            return new PicturesModelRepository
+            {
+                Title = picture.Title,
+                Technics = picture.Technics,
+                AuthorName = picture.AuthorName,
+                Id = picture.Id,
+                IsSold = picture.IsSold,
+                PicturePath = picture.PicturePath,
+                Price = picture.Price,
+                Size = picture.Size
+            };
+        }
+
+        public void AddNewPicture(NewPictureRepositoryModel picture)
+        {
+            var newPicture = new NewPictureModel
+            {
+                TitleBg = picture.TitleBg,
+                TitleEn = picture.TitleEn,
+                TechnicsBg = picture.TechnicsBg,
+                TechnicsEn = picture.TechnicsEn,
+                IsSold = picture.IsSold,
+                Price = picture.Price,
+                Size = picture.Size,
+                Path = picture.Path,
+                Author = picture.Author
+            };
+
+            m_PicturesDataSource.AddNewPicture(newPicture);
         }
     }
 }

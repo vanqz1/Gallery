@@ -5,7 +5,8 @@ namespace DataSource.DataSourceInterfaces
 {
     public interface IPicturesDataSource
     { 
-        IEnumerable<Picture> GetAllPictures(int languageNum);
-        Picture GetByIdPicture(int id, int languageNum);
+        IEnumerable<PictureModel> GetAllPictures(int languageNum);
+        PictureModel GetByIdPicture(int id, int languageNum);
+        void AddNewPicture(NewPictureModel picture);
     }
 }

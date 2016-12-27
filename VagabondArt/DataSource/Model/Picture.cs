@@ -1,6 +1,6 @@
 ﻿namespace DataSource.Model
 {
-    public class Picture
+    public class PictureModel
     {
         public int Id { get; set; }
         public string Title { get; set; }

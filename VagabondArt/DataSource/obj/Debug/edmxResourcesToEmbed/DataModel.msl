@@ -1,46 +1,27 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="VagabondModelStoreContainer" CdmEntityContainer="VagabondEntities">
-    <EntitySetMapping Name="AuthorsBGs">
-      <EntityTypeMapping TypeName="VagabondModel.AuthorsBG">
-        <MappingFragment StoreEntitySet="AuthorsBG">
-          <ScalarProperty Name="Name" ColumnName="Name" />
+    <EntitySetMapping Name="Authors">
+      <EntityTypeMapping TypeName="VagabondModel.Author">
+        <MappingFragment StoreEntitySet="Authors">
+          <ScalarProperty Name="NameEn" ColumnName="NameEn" />
+          <ScalarProperty Name="NameBg" ColumnName="NameBg" />
           <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="AuthorsENs">
-      <EntityTypeMapping TypeName="VagabondModel.AuthorsEN">
-        <MappingFragment StoreEntitySet="AuthorsEN">
-          <ScalarProperty Name="Name" ColumnName="Name" />
-          <ScalarProperty Name="Id" ColumnName="Id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="PicturesBGs">
-      <EntityTypeMapping TypeName="VagabondModel.PicturesBG">
-        <MappingFragment StoreEntitySet="PicturesBG">
+    <EntitySetMapping Name="Pictures">
+      <EntityTypeMapping TypeName="VagabondModel.Picture">
+        <MappingFragment StoreEntitySet="Pictures">
+          <ScalarProperty Name="TechnicsEn" ColumnName="TechnicsEn" />
+          <ScalarProperty Name="TitleEn" ColumnName="TitleEn" />
           <ScalarProperty Name="PicturePath" ColumnName="PicturePath" />
           <ScalarProperty Name="IsSold" ColumnName="IsSold" />
           <ScalarProperty Name="Price" ColumnName="Price" />
           <ScalarProperty Name="Author" ColumnName="Author" />
           <ScalarProperty Name="Size" ColumnName="Size" />
-          <ScalarProperty Name="Technics" ColumnName="Technics" />
-          <ScalarProperty Name="Title" ColumnName="Title" />
-          <ScalarProperty Name="Id" ColumnName="Id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="PicturesENs">
-      <EntityTypeMapping TypeName="VagabondModel.PicturesEN">
-        <MappingFragment StoreEntitySet="PicturesEN">
-          <ScalarProperty Name="PicturePath" ColumnName="PicturePath" />
-          <ScalarProperty Name="IsSold" ColumnName="IsSold" />
-          <ScalarProperty Name="Price" ColumnName="Price" />
-          <ScalarProperty Name="Author" ColumnName="Author" />
-          <ScalarProperty Name="Size" ColumnName="Size" />
-          <ScalarProperty Name="Technics" ColumnName="Technics" />
-          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="TechnicsBg" ColumnName="TechnicsBg" />
+          <ScalarProperty Name="TitleBg" ColumnName="TitleBg" />
           <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>

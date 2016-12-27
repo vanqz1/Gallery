@@ -1,83 +1,46 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="VagabondModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
   <EntityContainer Name="VagabondEntities" annotation:LazyLoadingEnabled="true">
-    <EntitySet Name="AuthorsBGs" EntityType="VagabondModel.AuthorsBG" />
-    <EntitySet Name="AuthorsENs" EntityType="VagabondModel.AuthorsEN" />
-    <EntitySet Name="PicturesBGs" EntityType="VagabondModel.PicturesBG" />
-    <EntitySet Name="PicturesENs" EntityType="VagabondModel.PicturesEN" />
-    <AssociationSet Name="FK__PicturesB__Autho__1BFD2C07" Association="VagabondModel.FK__PicturesB__Autho__1BFD2C07">
-      <End Role="AuthorsBG" EntitySet="AuthorsBGs" />
-      <End Role="PicturesBG" EntitySet="PicturesBGs" />
-    </AssociationSet>
-    <AssociationSet Name="FK__PicturesE__Autho__20C1E124" Association="VagabondModel.FK__PicturesE__Autho__20C1E124">
-      <End Role="AuthorsEN" EntitySet="AuthorsENs" />
-      <End Role="PicturesEN" EntitySet="PicturesENs" />
+    <EntitySet Name="Authors" EntityType="VagabondModel.Author" />
+    <EntitySet Name="Pictures" EntityType="VagabondModel.Picture" />
+    <AssociationSet Name="FK__Pictures__Author__403A8C7D" Association="VagabondModel.FK__Pictures__Author__403A8C7D">
+      <End Role="Author" EntitySet="Authors" />
+      <End Role="Picture" EntitySet="Pictures" />
     </AssociationSet>
   </EntityContainer>
-  <EntityType Name="AuthorsBG">
+  <EntityType Name="Author">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Name" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="PicturesBGs" Relationship="VagabondModel.FK__PicturesB__Autho__1BFD2C07" FromRole="AuthorsBG" ToRole="PicturesBG" />
+    <Property Name="NameBg" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="NameEn" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Pictures" Relationship="VagabondModel.FK__Pictures__Author__403A8C7D" FromRole="Author" ToRole="Picture" />
   </EntityType>
-  <EntityType Name="AuthorsEN">
+  <EntityType Name="Picture">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Name" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="PicturesENs" Relationship="VagabondModel.FK__PicturesE__Autho__20C1E124" FromRole="AuthorsEN" ToRole="PicturesEN" />
-  </EntityType>
-  <EntityType Name="PicturesBG">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Title" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
-    <Property Name="Technics" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="TitleBg" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="TechnicsBg" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
     <Property Name="Size" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
     <Property Name="Author" Type="Int32" />
     <Property Name="Price" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
     <Property Name="IsSold" Type="Boolean" Nullable="false" />
     <Property Name="PicturePath" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="AuthorsBG" Relationship="VagabondModel.FK__PicturesB__Autho__1BFD2C07" FromRole="PicturesBG" ToRole="AuthorsBG" />
+    <Property Name="TitleEn" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="TechnicsEn" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="PicturesAuthor" Relationship="VagabondModel.FK__Pictures__Author__403A8C7D" FromRole="Picture" ToRole="Author" />
   </EntityType>
-  <EntityType Name="PicturesEN">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Title" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
-    <Property Name="Technics" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
-    <Property Name="Size" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
-    <Property Name="Author" Type="Int32" Nullable="false" />
-    <Property Name="Price" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
-    <Property Name="IsSold" Type="Boolean" Nullable="false" />
-    <Property Name="PicturePath" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="AuthorsEN" Relationship="VagabondModel.FK__PicturesE__Autho__20C1E124" FromRole="PicturesEN" ToRole="AuthorsEN" />
-  </EntityType>
-  <Association Name="FK__PicturesB__Autho__1BFD2C07">
-    <End Type="VagabondModel.AuthorsBG" Role="AuthorsBG" Multiplicity="0..1" />
-    <End Type="VagabondModel.PicturesBG" Role="PicturesBG" Multiplicity="*" />
+  <Association Name="FK__Pictures__Author__403A8C7D">
+    <End Type="VagabondModel.Author" Role="Author" Multiplicity="0..1" />
+    <End Type="VagabondModel.Picture" Role="Picture" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="AuthorsBG">
+      <Principal Role="Author">
         <PropertyRef Name="Id" />
       </Principal>
-      <Dependent Role="PicturesBG">
-        <PropertyRef Name="Author" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK__PicturesE__Autho__20C1E124">
-    <End Type="VagabondModel.AuthorsEN" Role="AuthorsEN" Multiplicity="1" />
-    <End Type="VagabondModel.PicturesEN" Role="PicturesEN" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="AuthorsEN">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="PicturesEN">
+      <Dependent Role="Picture">
         <PropertyRef Name="Author" />
       </Dependent>
     </ReferentialConstraint>

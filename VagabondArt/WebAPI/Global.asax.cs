@@ -7,9 +7,6 @@ using Repository.Repository;
 using WebAPI.Interfaces;
 using Microsoft.Practices.Unity;
 using Repository.App_Start;
-using Repository.RepositoryModels;
-using WebAPI.Models;
-using AutoMapper;
 
 namespace WebAPI
 {
@@ -17,16 +14,12 @@ namespace WebAPI
     {
         protected void Application_Start()
         {
-            var config = new MapperConfiguration(cfg => {
-                cfg.CreateMap<PicturesModelRepository, Picture>();
-            });
-
             //Dependency Unity
             var container = UnityConfig.GetConfiguredContainer();
             UnityConfig.RegisterTypes(container);
 
             container.RegisterType<IPicturesService, PicturesService>();
-
+            container.RegisterType<IPicturesRepository, PicturesRepository>();
 
             // Format data which has been sent to JS format
             var formatters = GlobalConfiguration.Configuration.Formatters;

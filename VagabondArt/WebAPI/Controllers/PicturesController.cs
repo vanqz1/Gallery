@@ -1,5 +1,10 @@
-﻿using System.Web.Http;
+﻿using System.Collections.Specialized;
+using System.Net;
+using System.Net.Http;
+using System.Web;
+using System.Web.Http;
 using WebAPI.Interfaces;
+using WebAPI.Models;
 
 namespace WebAPI.Controllers
 {
@@ -50,6 +55,83 @@ namespace WebAPI.Controllers
         {
             var pictures = m_PicturesServices.GetAllPictures(EnumLanguages.English);
             return Ok(pictures);
+        }
+
+        [HttpPost]
+        [Route("api/add/picture")]
+        public HttpResponseMessage AddNewPcituret()
+        {
+            var files = HttpContext.Current.Request.Files;
+            var form = HttpContext.Current.Request.Form;
+
+            var newPicture = new NewPicture();
+
+            if (files[0] == null)
+            {
+                ModelState.AddModelError("Photo", "Please choose photo");
+            }
+            else
+            {
+                newPicture.PicturePhoto = files[0];
+            }
+
+            
+           
+            
+
+            TryValidateNewPictureModel(form,newPicture);
+
+            if (ModelState.IsValid)
+            {
+                m_PicturesServices.SavePicturePhoto(newPicture);
+                return new HttpResponseMessage(HttpStatusCode.OK);
+            }
+            else
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState);
+            }
+        }
+
+        private NewPicture TryValidateNewPictureModel(NameValueCollection form, NewPicture picture)
+        {
+            if (string.IsNullOrEmpty(form["TitleBg"]) || string.IsNullOrEmpty(form["TitleEn"]))
+                ModelState.AddModelError("Title", "Please fill both english and bulgarian title");
+            else
+                picture.TitleBg = form["TitleBg"];
+                picture.TitleEn = form["TitleEn"];
+
+
+            if (string.IsNullOrEmpty(form["TechnicsBg"]) || string.IsNullOrEmpty(form["TechnicsEn"]))
+                ModelState.AddModelError("Technics", "Please fill both english and bulgarian technics");
+            else
+                picture.TechnicsBg = form["TechnicsBg"];
+                picture.TechnicsEn = form["TechnicsEn"];
+
+
+            if (string.IsNullOrEmpty(form["AuthorNameBg"]) || string.IsNullOrEmpty(form["AuthorNameEn"]))
+                ModelState.AddModelError("Author", "Please fill both english and bulgarian author name");
+            else
+                picture.AuthorNameBg = form["AuthorNameBg"];
+                picture.AuthorNameEn = form["AuthorNameEn"];
+
+
+            if (string.IsNullOrEmpty(form["Price"]) || decimal.Parse(form["Price"]) == 0)
+                ModelState.AddModelError("Price", "Please fill price");
+            else
+                picture.Price = decimal.Parse(form["Price"]);
+
+
+            if (string.IsNullOrEmpty(form["Size"]))
+                ModelState.AddModelError("Size", "Please fill size");
+            else
+                picture.Size = form["Size"];
+
+
+            if (string.IsNullOrEmpty(form["IsSold"]))
+                ModelState.AddModelError("IsSold", "Please fill is sold field");
+            else picture.IsSold = bool.Parse(form["IsSold"]);
+
+            return picture;
         }
     }
 }

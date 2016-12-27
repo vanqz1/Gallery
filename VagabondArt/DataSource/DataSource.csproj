@@ -43,6 +43,7 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -51,10 +52,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AuthorsBG.cs">
-      <DependentUpon>DataModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="AuthorsEN.cs">
+    <Compile Include="Author.cs">
       <DependentUpon>DataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="DataModel.Context.cs">
@@ -75,11 +73,9 @@
     <Compile Include="DataSourceInterfaces\IPicturesDataSource.cs" />
     <Compile Include="DataSource\PicturesDataSource.cs" />
     <Compile Include="Enums\Languages.cs" />
+    <Compile Include="Model\NewPictureModel.cs" />
     <Compile Include="Model\Picture.cs" />
-    <Compile Include="PicturesBG.cs">
-      <DependentUpon>DataModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="PicturesEN.cs">
+    <Compile Include="Picture.cs">
       <DependentUpon>DataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />

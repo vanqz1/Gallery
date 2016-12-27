@@ -1,5 +1,7 @@
-﻿using DataSource.DataSourceInterfaces;
+﻿using Repository.RepositoryInterfaces;
+using Repository.RepositoryModels;
 using System.Collections.Generic;
+using System.Web;
 using WebAPI.Interfaces;
 using WebAPI.Models;
 
@@ -7,9 +9,9 @@ namespace WebAPI.Services
 {
     public class PicturesService : IPicturesService
     {
-        private readonly IPicturesDataSource m_PicturesRepository;
+        private readonly IPicturesRepository m_PicturesRepository;
 
-        public PicturesService(IPicturesDataSource picturesRepository)
+        public PicturesService(IPicturesRepository picturesRepository)
         {
             m_PicturesRepository = picturesRepository;
         }
@@ -55,6 +57,31 @@ namespace WebAPI.Services
                 IsSold = picture.IsSold,
                 PicturePath = picture.PicturePath
             };
+        }
+
+
+        public void SavePicturePhoto(NewPicture picture)
+        {
+            var fileName = picture.PicturePhoto.FileName;
+            
+            var TempFileName = "C:/Users/vanqz/Desktop/Project/Gallery/VagabondArt/WebAPI/Pictures/" + fileName;
+
+            picture.PicturePhoto.SaveAs(TempFileName);
+
+            var newPicture = new NewPictureRepositoryModel
+            {
+                TitleBg = picture.TitleBg,
+                TitleEn = picture.TitleEn,
+                TechnicsBg = picture.TechnicsBg,
+                TechnicsEn = picture.TechnicsEn,
+                IsSold = picture.IsSold,
+                Price = picture.Price,
+                Size = picture.Size,
+                Path = TempFileName,
+                Author = 1
+            };
+
+            m_PicturesRepository.AddNewPicture(newPicture);
         }
     }
 }

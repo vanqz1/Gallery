@@ -25,9 +25,7 @@ namespace DataSource
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<AuthorsBG> AuthorsBGs { get; set; }
-        public virtual DbSet<AuthorsEN> AuthorsENs { get; set; }
-        public virtual DbSet<PicturesBG> PicturesBGs { get; set; }
-        public virtual DbSet<PicturesEN> PicturesENs { get; set; }
+        public virtual DbSet<Author> Authors { get; set; }
+        public virtual DbSet<Picture> Pictures { get; set; }
     }
 }
