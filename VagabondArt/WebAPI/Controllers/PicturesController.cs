@@ -1,4 +1,5 @@
-﻿using System.Collections.Specialized;
+﻿using System;
+using System.Collections.Specialized;
 using System.Net;
 using System.Net.Http;
 using System.Web;
@@ -66,7 +67,7 @@ namespace WebAPI.Controllers
 
             var newPicture = new NewPicture();
 
-            if (files[0] == null)
+            if (files.Count == 0)
             {
                 ModelState.AddModelError("Photo", "Please choose photo");
             }
@@ -75,24 +76,26 @@ namespace WebAPI.Controllers
                 newPicture.PicturePhoto = files[0];
             }
 
-            
-           
-            
-
-            TryValidateNewPictureModel(form,newPicture);
+            ValidateNewPictureModel(form,newPicture);
 
             if (ModelState.IsValid)
             {
-                m_PicturesServices.SavePicturePhoto(newPicture);
-                return new HttpResponseMessage(HttpStatusCode.OK);
+                try
+                {
+                    m_PicturesServices.AddNewPicture(newPicture);
+                    return new HttpResponseMessage(HttpStatusCode.OK);
+                }
+                catch(Exception ex)
+                {
+                    ModelState.AddModelError("Error", "An error accured:" + ex.Message);
+                }
             }
-            else
-            {
-                return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState);
-            }
+
+            return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState);
+            
         }
 
-        private NewPicture TryValidateNewPictureModel(NameValueCollection form, NewPicture picture)
+        private NewPicture ValidateNewPictureModel(NameValueCollection form, NewPicture picture)
         {
             if (string.IsNullOrEmpty(form["TitleBg"]) || string.IsNullOrEmpty(form["TitleEn"]))
                 ModelState.AddModelError("Title", "Please fill both english and bulgarian title");

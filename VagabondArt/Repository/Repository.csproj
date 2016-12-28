@@ -82,9 +82,12 @@
     <Compile Include="App_Start\UnityConfig.cs" />
     <Compile Include="App_Start\UnityWebApiActivator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RepositoryInterfaces\IAuthorRepository.cs" />
     <Compile Include="RepositoryInterfaces\IPicturesRepository.cs" />
+    <Compile Include="RepositoryModels\AuthorRepositoryModel.cs" />
     <Compile Include="RepositoryModels\NewPictureRepositoryModel.cs" />
     <Compile Include="RepositoryModels\PicturesModelRepository.cs" />
+    <Compile Include="Repository\AuthorRepository.cs" />
     <Compile Include="Repository\PicturesRepository.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -19,7 +19,9 @@ namespace WebAPI
             UnityConfig.RegisterTypes(container);
 
             container.RegisterType<IPicturesService, PicturesService>();
+            container.RegisterType<IAuthorService, AuthorService>();
             container.RegisterType<IPicturesRepository, PicturesRepository>();
+            container.RegisterType<IAuthorRepository, AuthorRepository>();
 
             // Format data which has been sent to JS format
             var formatters = GlobalConfiguration.Configuration.Formatters;

@@ -184,7 +184,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Interfaces\IAuthorService.cs" />
     <Compile Include="Interfaces\IPicturesService.cs" />
+    <Compile Include="Models\Author.cs" />
     <Compile Include="Models\NewPicture.cs" />
     <Compile Include="Models\Picture.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -198,6 +200,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ResourceEn.resx</DependentUpon>
     </Compile>
+    <Compile Include="Services\AuthorService.cs" />
     <Compile Include="Services\PicturesService.cs" />
   </ItemGroup>
   <ItemGroup>

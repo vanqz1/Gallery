@@ -70,9 +70,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="DataSourceInterfaces\IAuthorDataSource.cs" />
     <Compile Include="DataSourceInterfaces\IPicturesDataSource.cs" />
+    <Compile Include="DataSource\AuthorDataSource.cs" />
     <Compile Include="DataSource\PicturesDataSource.cs" />
     <Compile Include="Enums\Languages.cs" />
+    <Compile Include="Model\AuthorModel.cs" />
     <Compile Include="Model\NewPictureModel.cs" />
     <Compile Include="Model\Picture.cs" />
     <Compile Include="Picture.cs">

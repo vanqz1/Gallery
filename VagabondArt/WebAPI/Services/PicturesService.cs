@@ -1,7 +1,7 @@
 ﻿using Repository.RepositoryInterfaces;
 using Repository.RepositoryModels;
+using System;
 using System.Collections.Generic;
-using System.Web;
 using WebAPI.Interfaces;
 using WebAPI.Models;
 
@@ -10,10 +10,13 @@ namespace WebAPI.Services
     public class PicturesService : IPicturesService
     {
         private readonly IPicturesRepository m_PicturesRepository;
+        private readonly IAuthorRepository m_AuthorRepository;
 
-        public PicturesService(IPicturesRepository picturesRepository)
+        public PicturesService(IPicturesRepository picturesRepository,
+                               IAuthorRepository authorRepository)
         {
             m_PicturesRepository = picturesRepository;
+            m_AuthorRepository = authorRepository;
         }
 
         public IEnumerable<Picture> GetAllPictures(EnumLanguages language)
@@ -60,13 +63,22 @@ namespace WebAPI.Services
         }
 
 
-        public void SavePicturePhoto(NewPicture picture)
+        public void AddNewPicture(NewPicture picture)
         {
             var fileName = picture.PicturePhoto.FileName;
-            
-            var TempFileName = "C:/Users/vanqz/Desktop/Project/Gallery/VagabondArt/WebAPI/Pictures/" + fileName;
+
+            var TempFileName = "C:/Users/vanqz/Desktop/Project/Gallery/VagabondArt/WebAPI/Pictures/" + Guid.NewGuid() + fileName ;
 
             picture.PicturePhoto.SaveAs(TempFileName);
+
+            var author = m_AuthorRepository.GetAuthorByName(picture.AuthorNameEn, picture.AuthorNameBg);
+            var authorId = author != null ? author.Id : 0;
+
+            if (author == null)
+            {
+                m_AuthorRepository.AddNewAuthor(picture.AuthorNameEn, picture.AuthorNameBg);
+                authorId = m_AuthorRepository.GetAuthorByName(picture.AuthorNameEn, picture.AuthorNameBg).Id;
+            }
 
             var newPicture = new NewPictureRepositoryModel
             {
@@ -78,7 +90,7 @@ namespace WebAPI.Services
                 Price = picture.Price,
                 Size = picture.Size,
                 Path = TempFileName,
-                Author = 1
+                Author = authorId
             };
 
             m_PicturesRepository.AddNewPicture(newPicture);

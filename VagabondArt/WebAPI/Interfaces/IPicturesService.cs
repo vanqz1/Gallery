@@ -7,6 +7,6 @@ namespace WebAPI.Interfaces
     {
         IEnumerable<Picture> GetAllPictures(EnumLanguages language);
         Picture GetByIdPicture(int id, EnumLanguages language);
-        void SavePicturePhoto(NewPicture picture);
+        void AddNewPicture(NewPicture picture);
     }
 }
