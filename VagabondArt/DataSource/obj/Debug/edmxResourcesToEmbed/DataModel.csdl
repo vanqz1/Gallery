@@ -7,6 +7,12 @@
       <End Role="Author" EntitySet="Authors" />
       <End Role="Picture" EntitySet="Pictures" />
     </AssociationSet>
+    <EntitySet Name="Admins" EntityType="VagabondModel.Admin" />
+    <EntitySet Name="Tokens" EntityType="VagabondModel.Token" />
+    <AssociationSet Name="FK__Tokens__AdminId__4D94879B" Association="VagabondModel.FK__Tokens__AdminId__4D94879B">
+      <End Role="Admin" EntitySet="Admins" />
+      <End Role="Token" EntitySet="Tokens" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="Author">
     <Key>
@@ -42,6 +48,38 @@
       </Principal>
       <Dependent Role="Picture">
         <PropertyRef Name="Author" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Admin">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="AdminPassword" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Tokens" Relationship="VagabondModel.FK__Tokens__AdminId__4D94879B" FromRole="Admin" ToRole="Token" />
+  </EntityType>
+  <EntityType Name="Token">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AdminId" Type="Int32" />
+    <Property Name="AuthToken" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="IssuedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ExpiredOn" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Admin" Relationship="VagabondModel.FK__Tokens__AdminId__4D94879B" FromRole="Token" ToRole="Admin" />
+  </EntityType>
+  <Association Name="FK__Tokens__AdminId__4D94879B">
+    <End Type="VagabondModel.Admin" Role="Admin" Multiplicity="0..1" />
+    <End Type="VagabondModel.Token" Role="Token" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Admin">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Token">
+        <PropertyRef Name="AdminId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

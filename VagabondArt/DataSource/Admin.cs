@@ -12,19 +12,19 @@ namespace DataSource
     using System;
     using System.Collections.Generic;
     
-    public partial class Picture
+    public partial class Admin
     {
-        public int Id { get; set; }
-        public string TitleBg { get; set; }
-        public string TechnicsBg { get; set; }
-        public string Size { get; set; }
-        public Nullable<int> Author { get; set; }
-        public decimal Price { get; set; }
-        public bool IsSold { get; set; }
-        public string PicturePath { get; set; }
-        public string TitleEn { get; set; }
-        public string TechnicsEn { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Admin()
+        {
+            this.Tokens = new HashSet<Token>();
+        }
     
-        public virtual Author PicturesAuthor { get; set; }
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string AdminPassword { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Token> Tokens { get; set; }
     }
 }

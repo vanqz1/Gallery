@@ -1,5 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="VagabondModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Admin">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="AdminPassword" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
   <EntityType Name="Authors">
     <Key>
       <PropertyRef Name="Id" />
@@ -23,6 +31,16 @@
     <Property Name="TitleEn" Type="nvarchar" MaxLength="250" Nullable="false" />
     <Property Name="TechnicsEn" Type="nvarchar" MaxLength="250" Nullable="false" />
   </EntityType>
+  <EntityType Name="Tokens">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AdminId" Type="int" />
+    <Property Name="AuthToken" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="IssuedOn" Type="datetime" Nullable="false" />
+    <Property Name="ExpiredOn" Type="datetime" Nullable="false" />
+  </EntityType>
   <Association Name="FK__Pictures__Author__403A8C7D">
     <End Role="Authors" Type="Self.Authors" Multiplicity="0..1" />
     <End Role="Pictures" Type="Self.Pictures" Multiplicity="*" />
@@ -35,12 +53,30 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK__Tokens__AdminId__4D94879B">
+    <End Role="Admin" Type="Self.Admin" Multiplicity="0..1" />
+    <End Role="Tokens" Type="Self.Tokens" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Admin">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Tokens">
+        <PropertyRef Name="AdminId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <EntityContainer Name="VagabondModelStoreContainer">
+    <EntitySet Name="Admin" EntityType="Self.Admin" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Authors" EntityType="Self.Authors" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Pictures" EntityType="Self.Pictures" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tokens" EntityType="Self.Tokens" Schema="dbo" store:Type="Tables" />
     <AssociationSet Name="FK__Pictures__Author__403A8C7D" Association="Self.FK__Pictures__Author__403A8C7D">
       <End Role="Authors" EntitySet="Authors" />
       <End Role="Pictures" EntitySet="Pictures" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Tokens__AdminId__4D94879B" Association="Self.FK__Tokens__AdminId__4D94879B">
+      <End Role="Admin" EntitySet="Admin" />
+      <End Role="Tokens" EntitySet="Tokens" />
     </AssociationSet>
   </EntityContainer>
 </Schema>

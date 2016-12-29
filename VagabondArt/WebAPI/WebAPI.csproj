@@ -176,19 +176,21 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="Controllers\EnableCorsAttribute.cs" />
+    <Compile Include="Controllers\AuthenticateController.cs" />
     <Compile Include="Controllers\PicturesController.cs" />
-    <Compile Include="Controllers\PreferenceRequest.cs" />
     <Compile Include="Controllers\ResourceController.cs" />
     <Compile Include="Enums\Languages.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Interfaces\IAdminService.cs" />
     <Compile Include="Interfaces\IAuthorService.cs" />
     <Compile Include="Interfaces\IPicturesService.cs" />
+    <Compile Include="Interfaces\ITokenService.cs" />
     <Compile Include="Models\Author.cs" />
     <Compile Include="Models\NewPicture.cs" />
     <Compile Include="Models\Picture.cs" />
+    <Compile Include="Models\Token.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ResourceBg.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -200,8 +202,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ResourceEn.resx</DependentUpon>
     </Compile>
+    <Compile Include="Services\AdminService.cs" />
     <Compile Include="Services\AuthorService.cs" />
     <Compile Include="Services\PicturesService.cs" />
+    <Compile Include="Services\TokenService.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

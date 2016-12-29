@@ -2,6 +2,7 @@
 using DataSource.DataSourceInterfaces;
 using DataSource.Model;
 using System.Linq;
+using System;
 
 namespace DataSource.DataSource
 {
@@ -88,7 +89,7 @@ namespace DataSource.DataSource
                         Technics = pictureEn.TechnicsEn,
                         AuthorName = pictureEn.PicturesAuthor.NameEn,
                         Size = pictureEn.Size,
-                        Price = pictureEn.Price,
+                        Price = Math.Round(pictureEn.Price * (decimal)0.51129,2),
                         IsSold = pictureEn.IsSold,
                         PicturePath = pictureEn.PicturePath
 
