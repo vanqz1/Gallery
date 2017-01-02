@@ -8,5 +8,6 @@ namespace Repository.RepositoryInterfaces
         bool Kill(string tokenId);
         TokenModelrepository GenerateToken(int adminId);
         bool ValidateToken(string tokenId);
+        int Authenticate(string userName, string password);
     }
 }

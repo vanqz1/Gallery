@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Linq;
 using DataSource.Model;
+using System.Web.Configuration;
+using System.Text;
 
 namespace DataSource.DataSource
 {
@@ -27,12 +29,21 @@ namespace DataSource.DataSource
 
         public TokenModel GenerateToken(int adminId)
         {
+            string hoursToExpireToken = WebConfigurationManager.AppSettings["TokenExpirationTimeHours"];
             string token = Guid.NewGuid().ToString();
+
             DateTime issuedOn = DateTime.Now;
-            DateTime expiredOn = DateTime.Now.AddSeconds(Convert.ToDouble(12));
+            DateTime expiredOn = issuedOn.AddHours(Convert.ToDouble(hoursToExpireToken));
 
             using (var contex = new VagabondEntities())
             {
+                var tokensAdmin = contex.Tokens.Where(s => s.AdminId == adminId);
+
+                foreach (var tokenAdmin in tokensAdmin)
+                {
+                    contex.Tokens.Remove(tokenAdmin);
+                }
+
                 var tokenDomain = new Token
                 {
                     AdminId = adminId,
@@ -79,7 +90,8 @@ namespace DataSource.DataSource
                 var token = contex.Tokens.FirstOrDefault(t => t.AuthToken == tokenId && t.ExpiredOn > DateTime.Now);
                 if (token != null && !(DateTime.Now > token.ExpiredOn))
                 {
-                    token.ExpiredOn = token.ExpiredOn.AddSeconds(Convert.ToDouble(12));
+                    string hoursToExpireToken = WebConfigurationManager.AppSettings["TokenExpirationTimeHours"];
+                    token.ExpiredOn = token.ExpiredOn.AddHours(Convert.ToDouble(hoursToExpireToken));
                    
                     contex.SaveChanges();
 
@@ -87,6 +99,25 @@ namespace DataSource.DataSource
                 }
             }
             return false;
+        }
+
+        public int Authenticate(string userName, string password)
+        {
+            var adminId = 0;
+            using (var contex = new VagabondEntities())
+            {
+                var admin = contex.Admins.FirstOrDefault(s => s.Name == userName);
+                Encoding encoding = Encoding.GetEncoding("iso-8859-1");
+
+                string passwordEncoded = encoding.GetString(Convert.FromBase64String(admin.AdminPassword));
+
+                if (passwordEncoded == password)
+                {
+                    adminId = admin != null ? admin.Id : adminId;
+                }
+            }
+
+            return adminId;
         }
     }
 }

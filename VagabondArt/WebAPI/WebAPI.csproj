@@ -186,7 +186,7 @@
     <Compile Include="Interfaces\IAdminService.cs" />
     <Compile Include="Interfaces\IAuthorService.cs" />
     <Compile Include="Interfaces\IPicturesService.cs" />
-    <Compile Include="Interfaces\ITokenService.cs" />
+    <Compile Include="Interfaces\IAuthenticationService.cs" />
     <Compile Include="Models\Author.cs" />
     <Compile Include="Models\NewPicture.cs" />
     <Compile Include="Models\Picture.cs" />
@@ -205,7 +205,7 @@
     <Compile Include="Services\AdminService.cs" />
     <Compile Include="Services\AuthorService.cs" />
     <Compile Include="Services\PicturesService.cs" />
-    <Compile Include="Services\TokenService.cs" />
+    <Compile Include="Services\AuthenticationService.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

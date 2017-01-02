@@ -12,10 +12,14 @@ namespace WebAPI.Controllers
     public class PicturesController : ApiController
     {
         private readonly IPicturesService m_PicturesServices;
+        private readonly IAuthenticationService m_TokenService;
 
-        public PicturesController(IPicturesService picturesServices)
+
+        public PicturesController(IPicturesService picturesServices,
+                                  IAuthenticationService tokenService)
         {
             m_PicturesServices = picturesServices;
+            m_TokenService = tokenService;
         }
 
         [HttpGet]
@@ -65,34 +69,39 @@ namespace WebAPI.Controllers
             var files = HttpContext.Current.Request.Files;
             var form = HttpContext.Current.Request.Form;
 
+            var isAuthorized = m_TokenService.IsAuthorized(form["AuthToken"]);
             var newPicture = new NewPicture();
-
-            if (files.Count == 0)
+            if (isAuthorized)
             {
-                ModelState.AddModelError("Photo", "Please choose photo");
-            }
-            else
-            {
-                newPicture.PicturePhoto = files[0];
-            }
-
-            ValidateNewPictureModel(form,newPicture);
-
-            if (ModelState.IsValid)
-            {
-                try
+                if (files.Count == 0)
                 {
-                    m_PicturesServices.AddNewPicture(newPicture);
-                    return new HttpResponseMessage(HttpStatusCode.OK);
+                    ModelState.AddModelError("Photo", "Please choose photo");
                 }
-                catch(Exception ex)
+                else
                 {
-                    ModelState.AddModelError("Error", "An error accured:" + ex.Message);
+                    newPicture.PicturePhoto = files[0];
                 }
-            }
 
-            return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState);
-            
+                ValidateNewPictureModel(form, newPicture);
+
+                if (ModelState.IsValid)
+                {
+                    try
+                    {
+                        m_PicturesServices.AddNewPicture(newPicture);
+                        return new HttpResponseMessage(HttpStatusCode.OK);
+                    }
+                    catch (Exception ex)
+                    {
+                        ModelState.AddModelError("Error", "An error accured:" + ex.Message);
+                    }
+                }
+
+                return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState);
+            }
+            ModelState.AddModelError("Unauthorized", "Unauthorized");
+            return Request.CreateErrorResponse(HttpStatusCode.Unauthorized, ModelState);
+
         }
 
         private NewPicture ValidateNewPictureModel(NameValueCollection form, NewPicture picture)

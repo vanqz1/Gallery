@@ -14,6 +14,13 @@ namespace Repository.Repository
             m_TokenDataSource = tokenDataSource;
         }
 
+        public int Authenticate(string userName, string password)
+        {
+            var adminId = m_TokenDataSource.Authenticate(userName, password);
+
+            return adminId;
+        }
+
         public bool DeleteByAdminId(int adminId)
         {
            return m_TokenDataSource.DeleteByAdminId(adminId);

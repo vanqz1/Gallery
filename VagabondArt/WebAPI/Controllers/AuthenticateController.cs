@@ -1,5 +1,6 @@
 ﻿using System.Net;
 using System.Net.Http;
+using System.Web;
 using System.Web.Http;
 using WebAPI.Interfaces;
 
@@ -7,41 +8,83 @@ namespace WebAPI.Controllers
 {
     public class AuthenticateController : ApiController
     {
-        private readonly ITokenService m_TokenService;
+        private readonly IAuthenticationService m_AuthenticationService;
 
-        public AuthenticateController(ITokenService tokenServices)
+        public AuthenticateController(IAuthenticationService authenticationService)
         {
-            m_TokenService = tokenServices;
+            m_AuthenticationService = authenticationService;
         }
 
         [HttpPost]
-        public HttpResponseMessage Authenticate()
+        [Route("api/admin/authenticate")]
+        public IHttpActionResult Authenticate()
         {
-            //if (System.Threading.Thread.CurrentPrincipal != null && System.Threading.Thread.CurrentPrincipal.Identity.IsAuthenticated)
-            //{
-            //    var basicAuthenticationIdentity = System.Threading.Thread.CurrentPrincipal.Identity as BasicAuthenticationIdentity;
-            //    if (basicAuthenticationIdentity != null)
-            //    {
-            //        var userId = basicAuthenticationIdentity.UserId;
-            //        return GetAuthToken(userId);
-            //    }
-            //}
-            return null;
+            HttpContext httpContext = HttpContext.Current;
+
+            string authHeader = httpContext.Request.Headers["Authorization"];
+
+            if (authHeader != null && authHeader.StartsWith("Basic"))
+            {
+                var adminId = m_AuthenticationService.Authenticate(authHeader);
+
+                if (adminId > 0)
+                {
+                    var token = m_AuthenticationService.GenerateToken(adminId);
+
+                    return Ok(token);
+                }
+                else
+                {
+                    var msg = new HttpResponseMessage(HttpStatusCode.Unauthorized) { ReasonPhrase = "Username or password is invalid." };
+                    throw new HttpResponseException(msg);
+                }
+            }
+            else
+            {
+                var msg = new HttpResponseMessage(HttpStatusCode.NotFound) { ReasonPhrase = "The authorization header is either empty or isn't Basic." };
+                throw new HttpResponseException(msg);
+            }
         }
 
-        [HttpGet]
-        [Route("api/auth/token")]
-        public HttpResponseMessage GetAuthToken()
+        [HttpPost]
+        [Route("api/admin/authorize")]
+        public IHttpActionResult Authorize()
         {
-            var adminId = 1;
-            var token = m_TokenService.GenerateToken(adminId);
-            var response = Request.CreateResponse(HttpStatusCode.OK, "Authorized");
+            var form = HttpContext.Current.Request.Form;
+            var authToken = form["AuthToken"];
 
-            response.Headers.Add("Token", token.AuthToken);
-            response.Headers.Add("TokenExpiry", "12");
-            response.Headers.Add("Access-Control-Expose-Headers", "Token,TokenExpiry");
+            if (!string.IsNullOrEmpty(authToken))
+            {
+                var isAuthorized = m_AuthenticationService.ValidateToken(authToken);
 
-            return response;
+                if (isAuthorized)
+                {
+                    return Ok("Authorized");
+                }
+
+                m_AuthenticationService.Kill(authToken);
+            }
+
+            var msg = new HttpResponseMessage(HttpStatusCode.NotFound) { ReasonPhrase = "Unauthorized" };
+            throw new HttpResponseException(msg);
+        }
+
+        [HttpDelete]
+        [Route("api/admin/logout")]
+        public IHttpActionResult LogOut()
+        {
+            var form = HttpContext.Current.Request.Form;
+            var authToken = form["authToken"];
+
+            var isTokenKilled = m_AuthenticationService.Kill(authToken);
+
+            if (isTokenKilled)
+            {
+                return Ok("End session");
+            }
+
+            var msg = new HttpResponseMessage(HttpStatusCode.NotFound) { ReasonPhrase = "Invalid admin id" };
+            throw new HttpResponseException(msg);
         }
     }
 }

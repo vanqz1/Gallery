@@ -8,5 +8,6 @@ namespace DataSource.DataSource
         bool Kill(string tokenId);
         TokenModel GenerateToken(int adminId);
         bool ValidateToken(string tokenId);
+        int Authenticate(string userName, string password);
     }
 }

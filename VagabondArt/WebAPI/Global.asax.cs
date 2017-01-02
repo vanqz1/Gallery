@@ -22,9 +22,10 @@ namespace WebAPI
             container.RegisterType<IAuthorService, AuthorService>();
             container.RegisterType<IPicturesRepository, PicturesRepository>();
             container.RegisterType<IAuthorRepository, AuthorRepository>();
+            container.RegisterType<IAuthenticationService, AuthenticationService>();
             container.RegisterType<IAdminRepository, AdminRepository>();
             container.RegisterType<ITokenRepository, TokenRepository>();
-            container.RegisterType<ITokenService, TokenService>();
+            
 
             // Format data which has been sent to JS format
             var formatters = GlobalConfiguration.Configuration.Formatters;
