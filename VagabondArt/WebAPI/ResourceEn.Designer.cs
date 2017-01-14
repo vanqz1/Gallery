@@ -61,6 +61,24 @@ namespace WebAPI {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Admin.
+        /// </summary>
+        internal static string Admin {
+            get {
+                return ResourceManager.GetString("Admin", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Admin panel.
+        /// </summary>
+        internal static string AdminTitle {
+            get {
+                return ResourceManager.GetString("AdminTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Angel Angelov.
         /// </summary>
         internal static string angelAngelov {
@@ -75,6 +93,15 @@ namespace WebAPI {
         internal static string Author {
             get {
                 return ResourceManager.GetString("Author", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to lv.
+        /// </summary>
+        internal static string BgCurrency {
+            get {
+                return ResourceManager.GetString("BgCurrency", resourceCulture);
             }
         }
         
@@ -97,6 +124,15 @@ namespace WebAPI {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Eur.
+        /// </summary>
+        internal static string Currency {
+            get {
+                return ResourceManager.GetString("Currency", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Foundation.
         /// </summary>
         internal static string Foundation {
@@ -106,7 +142,7 @@ namespace WebAPI {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Home.
+        ///   Looks up a localized string similar to About us.
         /// </summary>
         internal static string Home {
             get {
@@ -151,6 +187,105 @@ namespace WebAPI {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Is sold.
+        /// </summary>
+        internal static string IsSold {
+            get {
+                return ResourceManager.GetString("IsSold", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Log in.
+        /// </summary>
+        internal static string LogIn {
+            get {
+                return ResourceManager.GetString("LogIn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Username or password incorrect.
+        /// </summary>
+        internal static string LoginError {
+            get {
+                return ResourceManager.GetString("LoginError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Logout.
+        /// </summary>
+        internal static string Logout {
+            get {
+                return ResourceManager.GetString("Logout", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Art center Vagabond.
+        /// </summary>
+        internal static string LogoVagabond {
+            get {
+                return ResourceManager.GetString("LogoVagabond", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to New product.
+        /// </summary>
+        internal static string NewProduct {
+            get {
+                return ResourceManager.GetString("NewProduct", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error on save.
+        /// </summary>
+        internal static string NewProductError {
+            get {
+                return ResourceManager.GetString("NewProductError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The product is saved successduly..
+        /// </summary>
+        internal static string NewProductSuccessfulSave {
+            get {
+                return ResourceManager.GetString("NewProductSuccessfulSave", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Password:.
+        /// </summary>
+        internal static string Password {
+            get {
+                return ResourceManager.GetString("Password", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Picture.
+        /// </summary>
+        internal static string Picture {
+            get {
+                return ResourceManager.GetString("Picture", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Picture name.
+        /// </summary>
+        internal static string PictureName {
+            get {
+                return ResourceManager.GetString("PictureName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Pictures.
         /// </summary>
         internal static string Pictures {
@@ -187,6 +322,24 @@ namespace WebAPI {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Products.
+        /// </summary>
+        internal static string Products {
+            get {
+                return ResourceManager.GetString("Products", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Save.
+        /// </summary>
+        internal static string Save {
+            get {
+                return ResourceManager.GetString("Save", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Size.
         /// </summary>
         internal static string Size {
@@ -210,6 +363,15 @@ namespace WebAPI {
         internal static string Technics {
             get {
                 return ResourceManager.GetString("Technics", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Username:.
+        /// </summary>
+        internal static string Username {
+            get {
+                return ResourceManager.GetString("Username", resourceCulture);
             }
         }
         

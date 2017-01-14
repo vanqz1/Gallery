@@ -2,10 +2,12 @@
 using System.Net.Http;
 using System.Web;
 using System.Web.Http;
+using System.Web.Http.Cors;
 using WebAPI.Interfaces;
 
 namespace WebAPI.Controllers
 {
+    [EnableCors(origins: "http://localhost:4200", headers: "*", methods: "*")]
     public class AuthenticateController : ApiController
     {
         private readonly IAuthenticationService m_AuthenticationService;

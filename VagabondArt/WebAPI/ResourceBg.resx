@@ -168,6 +168,60 @@
   <data name="Technics" xml:space="preserve">
     <value>Техники</value>
   </data>
+  <data name="Username" xml:space="preserve">
+    <value>Потребителско име:</value>
+  </data>
+  <data name="LogoVagabond" xml:space="preserve">
+    <value>Арт център Вагабонд</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>Парола:</value>
+  </data>
+  <data name="Currency" xml:space="preserve">
+    <value>лв.</value>
+  </data>
+  <data name="LogIn" xml:space="preserve">
+    <value>Вход</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Запиши</value>
+  </data>
+  <data name="Admin" xml:space="preserve">
+    <value>Админ</value>
+  </data>
+  <data name="AdminTitle" xml:space="preserve">
+    <value>Админ панел</value>
+  </data>
+  <data name="BgCurrency" xml:space="preserve">
+    <value>лв</value>
+  </data>
+  <data name="IsSold" xml:space="preserve">
+    <value>Продадена</value>
+  </data>
+  <data name="LoginError" xml:space="preserve">
+    <value>Потребителското име и паролата са невалидни</value>
+  </data>
+  <data name="Logout" xml:space="preserve">
+    <value>Отписване</value>
+  </data>
+  <data name="NewProduct" xml:space="preserve">
+    <value>Нов продукт</value>
+  </data>
+  <data name="NewProductError" xml:space="preserve">
+    <value>Греша при запазване</value>
+  </data>
+  <data name="NewProductSuccessfulSave" xml:space="preserve">
+    <value>Продуктът е записан успешно</value>
+  </data>
+  <data name="Picture" xml:space="preserve">
+    <value>Картина</value>
+  </data>
+  <data name="PictureName" xml:space="preserve">
+    <value>Име на картина</value>
+  </data>
+  <data name="Products" xml:space="preserve">
+    <value>Прдукти</value>
+  </data>
   <data name="Vagabond" xml:space="preserve">
     <value>Вагабонд</value>
   </data>

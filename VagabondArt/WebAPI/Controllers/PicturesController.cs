@@ -4,11 +4,13 @@ using System.Net;
 using System.Net.Http;
 using System.Web;
 using System.Web.Http;
+using System.Web.Http.Cors;
 using WebAPI.Interfaces;
 using WebAPI.Models;
 
 namespace WebAPI.Controllers
 {
+    [EnableCors(origins: "http://localhost:4200", headers: "*", methods: "*")]
     public class PicturesController : ApiController
     {
         private readonly IPicturesService m_PicturesServices;
@@ -140,8 +142,8 @@ namespace WebAPI.Controllers
 
 
             if (string.IsNullOrEmpty(form["IsSold"]))
-                ModelState.AddModelError("IsSold", "Please fill is sold field");
-            else picture.IsSold = bool.Parse(form["IsSold"]);
+                picture.IsSold = false;
+            else picture.IsSold = true;
 
             return picture;
         }

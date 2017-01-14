@@ -1,7 +1,6 @@
 ﻿using Repository.RepositoryInterfaces;
 using System;
 using System.Text;
-using System.Web;
 using WebAPI.Interfaces;
 using WebAPI.Models;
 
@@ -68,8 +67,6 @@ namespace WebAPI.Services
             if (!string.IsNullOrEmpty(authToken))
             {
                 isAuthorized = ValidateToken(authToken);
-
-                Kill(authToken);
             }
             return isAuthorized;
         }

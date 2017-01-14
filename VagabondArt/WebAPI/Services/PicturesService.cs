@@ -65,9 +65,9 @@ namespace WebAPI.Services
 
         public void AddNewPicture(NewPicture picture)
         {
-            var fileName = picture.PicturePhoto.FileName;
+            var fileName = Guid.NewGuid() + picture.PicturePhoto.FileName;
 
-            var TempFileName = "C:/Users/vanqz/Desktop/Project/Gallery/VagabondArt/WebAPI/Pictures/" + Guid.NewGuid() + fileName ;
+            var TempFileName = "C:/Users/vanqz/Desktop/Project/Gallery/VagabondArt/WebAPI/Pictures/" + fileName ;
 
             picture.PicturePhoto.SaveAs(TempFileName);
 
@@ -89,7 +89,7 @@ namespace WebAPI.Services
                 IsSold = picture.IsSold,
                 Price = picture.Price,
                 Size = picture.Size,
-                Path = TempFileName,
+                Path = fileName,
                 Author = authorId
             };
 
