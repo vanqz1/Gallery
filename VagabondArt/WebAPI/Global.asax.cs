@@ -1,13 +1,11 @@
 ﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
-using Repository.RepositoryInterfaces;
 using System.Web.Http;
-using WebAPI.Services;
-using Repository.Repository;
-using WebAPI.Interfaces;
+using Services.Interfaces;
 using Microsoft.Practices.Unity;
-using Repository.App_Start;
-
+using Services.Services;
+using Service.Services;
+using Services.App_Start;
 namespace WebAPI
 {
     public class WebApiApplication : System.Web.HttpApplication
@@ -18,15 +16,13 @@ namespace WebAPI
             //Dependency Unity
             var container = UnityConfig.GetConfiguredContainer();
             UnityConfig.RegisterTypes(container);
+            
 
             container.RegisterType<IPicturesService, PicturesService>();
             container.RegisterType<IAuthorService, AuthorService>();
-            container.RegisterType<IPicturesRepository, PicturesRepository>();
-            container.RegisterType<IAuthorRepository, AuthorRepository>();
             container.RegisterType<IAuthenticationService, AuthenticationService>();
-            container.RegisterType<IAdminRepository, AdminRepository>();
-            container.RegisterType<ITokenRepository, TokenRepository>();
-            
+            container.RegisterType<IAdminService, AdminService>();
+
 
             // Format data which has been sent to JS format
             var formatters = GlobalConfiguration.Configuration.Formatters;

@@ -18,3 +18,13 @@ C:\Users\vanqz\Desktop\Project\Gallery\VagabondArt\DataSource\bin\Debug\EntityFr
 C:\Users\vanqz\Desktop\Project\Gallery\VagabondArt\DataSource\obj\Debug\DataSource.dll
 C:\Users\vanqz\Desktop\Project\Gallery\VagabondArt\DataSource\obj\Debug\DataSource.pdb
 C:\Users\vanqz\Desktop\Project\Gallery\VagabondArt\DataSource\obj\Debug\DataSource.csprojResolveAssemblyReference.cache
+C:\Users\vanqz\Desktop\Gallery\Gallery\VagabondArt\DataSource\bin\Debug\DataSource.dll.config
+C:\Users\vanqz\Desktop\Gallery\Gallery\VagabondArt\DataSource\bin\Debug\DataSource.dll
+C:\Users\vanqz\Desktop\Gallery\Gallery\VagabondArt\DataSource\bin\Debug\DataSource.pdb
+C:\Users\vanqz\Desktop\Gallery\Gallery\VagabondArt\DataSource\bin\Debug\EntityFramework.dll
+C:\Users\vanqz\Desktop\Gallery\Gallery\VagabondArt\DataSource\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\vanqz\Desktop\Gallery\Gallery\VagabondArt\DataSource\bin\Debug\EntityFramework.xml
+C:\Users\vanqz\Desktop\Gallery\Gallery\VagabondArt\DataSource\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\vanqz\Desktop\Gallery\Gallery\VagabondArt\DataSource\obj\Debug\DataSource.csprojResolveAssemblyReference.cache
+C:\Users\vanqz\Desktop\Gallery\Gallery\VagabondArt\DataSource\obj\Debug\DataSource.dll
+C:\Users\vanqz\Desktop\Gallery\Gallery\VagabondArt\DataSource\obj\Debug\DataSource.pdb

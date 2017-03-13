@@ -3,7 +3,7 @@ using System.Net.Http;
 using System.Web;
 using System.Web.Http;
 using System.Web.Http.Cors;
-using WebAPI.Interfaces;
+using Services.Interfaces;
 
 namespace WebAPI.Controllers
 {

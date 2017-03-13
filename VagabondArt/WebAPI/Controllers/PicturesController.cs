@@ -5,8 +5,8 @@ using System.Net.Http;
 using System.Web;
 using System.Web.Http;
 using System.Web.Http.Cors;
-using WebAPI.Interfaces;
-using WebAPI.Models;
+using Services.Interfaces;
+using Services.Models;
 
 namespace WebAPI.Controllers
 {
@@ -90,7 +90,19 @@ namespace WebAPI.Controllers
                 {
                     try
                     {
-                        m_PicturesServices.AddNewPicture(newPicture);
+                        m_PicturesServices.AddNewPicture(new Services.Models.NewPicture
+                        {
+                            TitleBg = newPicture.TitleBg,
+                            TitleEn = newPicture.TitleEn,
+                            AuthorNameBg = newPicture.AuthorNameBg,
+                            AuthorNameEn = newPicture.AuthorNameEn,
+                            IsSold = newPicture.IsSold,
+                            PicturePhoto = newPicture.PicturePhoto,
+                            Price = newPicture.Price,
+                            Size = newPicture.Size,
+                            TechnicsBg = newPicture.TechnicsBg,
+                            TechnicsEn = newPicture.TechnicsEn
+                        });
                         return new HttpResponseMessage(HttpStatusCode.OK);
                     }
                     catch (Exception ex)
