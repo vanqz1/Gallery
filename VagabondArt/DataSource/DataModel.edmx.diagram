@@ -11,6 +11,8 @@
         <EntityTypeShape EntityType="VagabondModel.Admin" Width="1.5" PointX="5.375" PointY="0.75" />
         <EntityTypeShape EntityType="VagabondModel.Token" Width="1.5" PointX="7.625" PointY="4.625" />
         <AssociationConnector Association="VagabondModel.FK__Tokens__AdminId__4D94879B" />
+        <EntityTypeShape EntityType="VagabondModel.OrdersPicture" Width="1.5" PointX="5.25" PointY="3.5" />
+        <AssociationConnector Association="VagabondModel.FK__OrdersPic__Produ__5FB337D6" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

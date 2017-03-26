@@ -176,7 +176,6 @@ C:\Users\vanqz\Desktop\Gallery\Gallery\VagabondArt\WebAPI\bin\System.Web.Http.dl
 C:\Users\vanqz\Desktop\Gallery\Gallery\VagabondArt\WebAPI\bin\System.Web.Http.WebHost.dll
 C:\Users\vanqz\Desktop\Gallery\Gallery\VagabondArt\WebAPI\bin\Repository.dll
 C:\Users\vanqz\Desktop\Gallery\Gallery\VagabondArt\WebAPI\bin\Microsoft.Practices.Unity.WebApi.dll
-C:\Users\vanqz\Desktop\Gallery\Gallery\VagabondArt\WebAPI\bin\Unity.WebApi.dll
 C:\Users\vanqz\Desktop\Gallery\Gallery\VagabondArt\WebAPI\bin\DataSource.pdb
 C:\Users\vanqz\Desktop\Gallery\Gallery\VagabondArt\WebAPI\bin\Services.pdb
 C:\Users\vanqz\Desktop\Gallery\Gallery\VagabondArt\WebAPI\bin\Autofac.xml

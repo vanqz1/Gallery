@@ -39,6 +39,8 @@ namespace Repository.App_Start
             container.RegisterType<IAuthorDataSource, AuthorDataSource>();
             container.RegisterType<IAdminDataSource, AdminDataSource>();
             container.RegisterType<ITokenDataSource, TokenDataSource>();
+            container.RegisterType<IOrdersPricturesDataSource, OrdersPicturesDataSource>();
+            container.RegisterType<IOrdersPicturesRepository, OrdersPicturesRepository>();
         }
     }
 }

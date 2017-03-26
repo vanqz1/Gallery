@@ -29,5 +29,6 @@ namespace DataSource
         public virtual DbSet<Picture> Pictures { get; set; }
         public virtual DbSet<Admin> Admins { get; set; }
         public virtual DbSet<Token> Tokens { get; set; }
+        public virtual DbSet<OrdersPicture> OrdersPictures { get; set; }
     }
 }

@@ -75,17 +75,23 @@
     </Compile>
     <Compile Include="DataSourceInterfaces\IAdminDataSource.cs" />
     <Compile Include="DataSourceInterfaces\IAuthorDataSource.cs" />
+    <Compile Include="DataSourceInterfaces\IOrdersPricturesDataSource.cs" />
     <Compile Include="DataSourceInterfaces\IPicturesDataSource.cs" />
     <Compile Include="DataSource\AdminDataSource.cs" />
     <Compile Include="DataSource\AuthorDataSource.cs" />
+    <Compile Include="DataSource\OrdersPicturesDataSource.cs" />
     <Compile Include="DataSource\PicturesDataSource.cs" />
     <Compile Include="DataSource\TokenDataSource.cs" />
     <Compile Include="Enums\Languages.cs" />
     <Compile Include="DataSourceInterfaces\ITokenDataSource.cs" />
     <Compile Include="Model\AuthorModel.cs" />
     <Compile Include="Model\NewPictureModel.cs" />
+    <Compile Include="Model\OrderPictureModel.cs" />
     <Compile Include="Model\Picture.cs" />
     <Compile Include="Model\Token.cs" />
+    <Compile Include="OrdersPicture.cs">
+      <DependentUpon>DataModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Picture.cs">
       <DependentUpon>DataModel.tt</DependentUpon>
     </Compile>

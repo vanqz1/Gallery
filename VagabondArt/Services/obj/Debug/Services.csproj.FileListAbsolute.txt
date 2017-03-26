@@ -5,7 +5,6 @@ C:\Users\vanqz\Desktop\Gallery\Gallery\VagabondArt\Services\bin\Debug\Microsoft.
 C:\Users\vanqz\Desktop\Gallery\Gallery\VagabondArt\Services\bin\Debug\DataSource.dll
 C:\Users\vanqz\Desktop\Gallery\Gallery\VagabondArt\Services\bin\Debug\System.Web.Http.WebHost.dll
 C:\Users\vanqz\Desktop\Gallery\Gallery\VagabondArt\Services\bin\Debug\System.Web.Http.dll
-C:\Users\vanqz\Desktop\Gallery\Gallery\VagabondArt\Services\bin\Debug\Unity.WebApi.dll
 C:\Users\vanqz\Desktop\Gallery\Gallery\VagabondArt\Services\bin\Debug\Microsoft.Practices.ServiceLocation.dll
 C:\Users\vanqz\Desktop\Gallery\Gallery\VagabondArt\Services\bin\Debug\EntityFramework.dll
 C:\Users\vanqz\Desktop\Gallery\Gallery\VagabondArt\Services\bin\Debug\System.Net.Http.Formatting.dll

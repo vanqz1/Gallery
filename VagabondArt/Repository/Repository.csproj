@@ -79,11 +79,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\AutoMapperCongig.cs" />
+    <Compile Include="RepositoryInterfaces\IOrdersPicturesRepository.cs" />
     <Compile Include="RepositoryInterfaces\ITokenRepository.cs" />
+    <Compile Include="RepositoryModels\OrdersPicturesRepositoryModel.cs" />
     <Compile Include="RepositoryModels\TokenModelRepository.cs" />
+    <Compile Include="Repository\OrdersPicturesRepository.cs" />
     <Compile Include="Repository\TokenRepository.cs" />
     <Compile Include="App_Start\UnityConfig.cs" />
-    <Compile Include="App_Start\UnityWebApiActivator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RepositoryInterfaces\IAdminRepository.cs" />
     <Compile Include="RepositoryInterfaces\IAuthorRepository.cs" />

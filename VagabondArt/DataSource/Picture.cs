@@ -14,6 +14,12 @@ namespace DataSource
     
     public partial class Picture
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Picture()
+        {
+            this.OrdersPictures = new HashSet<OrdersPicture>();
+        }
+    
         public int Id { get; set; }
         public string TitleBg { get; set; }
         public string TechnicsBg { get; set; }
@@ -26,5 +32,7 @@ namespace DataSource
         public string TechnicsEn { get; set; }
     
         public virtual Author PicturesAuthor { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<OrdersPicture> OrdersPictures { get; set; }
     }
 }

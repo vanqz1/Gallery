@@ -16,6 +16,17 @@
     <Property Name="NameBg" Type="nvarchar" MaxLength="250" Nullable="false" />
     <Property Name="NameEn" Type="nvarchar" MaxLength="250" Nullable="false" />
   </EntityType>
+  <EntityType Name="OrdersPictures">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="Address" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="ProductId" Type="int" Nullable="false" />
+    <Property Name="Comment" Type="nvarchar" MaxLength="1000" Nullable="false" />
+  </EntityType>
   <EntityType Name="Pictures">
     <Key>
       <PropertyRef Name="Id" />
@@ -41,6 +52,18 @@
     <Property Name="IssuedOn" Type="datetime" Nullable="false" />
     <Property Name="ExpiredOn" Type="datetime" Nullable="false" />
   </EntityType>
+  <Association Name="FK__OrdersPic__Produ__5FB337D6">
+    <End Role="Pictures" Type="Self.Pictures" Multiplicity="1" />
+    <End Role="OrdersPictures" Type="Self.OrdersPictures" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pictures">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="OrdersPictures">
+        <PropertyRef Name="ProductId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK__Pictures__Author__403A8C7D">
     <End Role="Authors" Type="Self.Authors" Multiplicity="0..1" />
     <End Role="Pictures" Type="Self.Pictures" Multiplicity="*" />
@@ -68,8 +91,13 @@
   <EntityContainer Name="VagabondModelStoreContainer">
     <EntitySet Name="Admin" EntityType="Self.Admin" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Authors" EntityType="Self.Authors" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OrdersPictures" EntityType="Self.OrdersPictures" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Pictures" EntityType="Self.Pictures" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Tokens" EntityType="Self.Tokens" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__OrdersPic__Produ__5FB337D6" Association="Self.FK__OrdersPic__Produ__5FB337D6">
+      <End Role="Pictures" EntitySet="Pictures" />
+      <End Role="OrdersPictures" EntitySet="OrdersPictures" />
+    </AssociationSet>
     <AssociationSet Name="FK__Pictures__Author__403A8C7D" Association="Self.FK__Pictures__Author__403A8C7D">
       <End Role="Authors" EntitySet="Authors" />
       <End Role="Pictures" EntitySet="Pictures" />

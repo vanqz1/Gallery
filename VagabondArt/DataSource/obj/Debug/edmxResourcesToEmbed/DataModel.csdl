@@ -13,6 +13,11 @@
       <End Role="Admin" EntitySet="Admins" />
       <End Role="Token" EntitySet="Tokens" />
     </AssociationSet>
+    <EntitySet Name="OrdersPictures" EntityType="VagabondModel.OrdersPicture" />
+    <AssociationSet Name="FK__OrdersPic__Produ__5FB337D6" Association="VagabondModel.FK__OrdersPic__Produ__5FB337D6">
+      <End Role="Picture" EntitySet="Pictures" />
+      <End Role="OrdersPicture" EntitySet="OrdersPictures" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="Author">
     <Key>
@@ -38,6 +43,7 @@
     <Property Name="TitleEn" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
     <Property Name="TechnicsEn" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="PicturesAuthor" Relationship="VagabondModel.FK__Pictures__Author__403A8C7D" FromRole="Picture" ToRole="Author" />
+    <NavigationProperty Name="OrdersPictures" Relationship="VagabondModel.FK__OrdersPic__Produ__5FB337D6" FromRole="Picture" ToRole="OrdersPicture" />
   </EntityType>
   <Association Name="FK__Pictures__Author__403A8C7D">
     <End Type="VagabondModel.Author" Role="Author" Multiplicity="0..1" />
@@ -80,6 +86,30 @@
       </Principal>
       <Dependent Role="Token">
         <PropertyRef Name="AdminId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="OrdersPicture">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Email" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Phone" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Address" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="ProductId" Type="Int32" Nullable="false" />
+    <Property Name="Comment" Type="String" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Picture" Relationship="VagabondModel.FK__OrdersPic__Produ__5FB337D6" FromRole="OrdersPicture" ToRole="Picture" />
+  </EntityType>
+  <Association Name="FK__OrdersPic__Produ__5FB337D6">
+    <End Type="VagabondModel.Picture" Role="Picture" Multiplicity="1" />
+    <End Type="VagabondModel.OrdersPicture" Role="OrdersPicture" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Picture">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="OrdersPicture">
+        <PropertyRef Name="ProductId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
