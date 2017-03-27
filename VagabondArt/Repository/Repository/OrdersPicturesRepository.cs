@@ -1,6 +1,7 @@
 ﻿using DataSource.Model;
 using Repository.RepositoryInterfaces;
 using DataSource.DataSourceInterfaces;
+using Repository.RepositoryModels;
 
 namespace Repository.Repository
 {
@@ -13,9 +14,16 @@ namespace Repository.Repository
             m_OrdersPicturesDataSource = ordersPricturesDataSource;
         }
 
-        public void MakeNewPictureOrder(OrderPictureModel orderPicture)
+        public void MakeNewPictureOrder(OrdersPicturesRepositoryModel orderPicture)
         {
-            m_OrdersPicturesDataSource.MakeNewPictureOrder(orderPicture);
+            m_OrdersPicturesDataSource.MakeNewPictureOrder(new OrderPictureModel {
+                Address = orderPicture.Address,
+                Comment = orderPicture.Comment,
+                Emmail = orderPicture.Emmail,
+                Phone = orderPicture.Phone,
+                PictureId = orderPicture.PictureId,
+                FullName = orderPicture.FullName
+            });
         }
     }
 }

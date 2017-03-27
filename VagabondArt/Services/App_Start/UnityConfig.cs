@@ -40,6 +40,7 @@ namespace Services.App_Start
             container.RegisterType<IAuthenticationService, AuthenticationService>();
             container.RegisterType<IAdminRepository, AdminRepository>();
             container.RegisterType<ITokenRepository, TokenRepository>();
+            container.RegisterType<IOrdersPicturesRepository, OrdersPicturesRepository>();
 
             Repository.App_Start.UnityConfig.RegisterTypes(container);
 

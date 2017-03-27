@@ -20,6 +20,7 @@ namespace DataSource
         public string Address { get; set; }
         public int ProductId { get; set; }
         public string Comment { get; set; }
+        public string FullName { get; set; }
     
         public virtual Picture Picture { get; set; }
     }

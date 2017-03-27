@@ -191,6 +191,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\NewPicture.cs" />
+    <Compile Include="Models\PictureOrder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ResourceBg.Designer.cs">
       <AutoGen>True</AutoGen>

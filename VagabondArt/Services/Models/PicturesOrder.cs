@@ -1,6 +1,6 @@
-﻿namespace DataSource.Model
+﻿namespace Services.Models
 {
-    public class OrderPictureModel
+    public class PicturesOrder
     {
         public string Emmail { get; set; }
         public string Phone { get; set; }

@@ -26,6 +26,7 @@
     <Property Name="Address" Type="nvarchar" MaxLength="200" Nullable="false" />
     <Property Name="ProductId" Type="int" Nullable="false" />
     <Property Name="Comment" Type="nvarchar" MaxLength="1000" Nullable="false" />
+    <Property Name="FullName" Type="nvarchar" MaxLength="200" />
   </EntityType>
   <EntityType Name="Pictures">
     <Key>

@@ -133,6 +133,15 @@ namespace WebAPI {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to All fields are mandatory.
+        /// </summary>
+        internal static string ErrorFieldsAreMandatory {
+            get {
+                return ResourceManager.GetString("ErrorFieldsAreMandatory", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Foundation.
         /// </summary>
         internal static string Foundation {
@@ -273,6 +282,15 @@ namespace WebAPI {
         internal static string Picture {
             get {
                 return ResourceManager.GetString("Picture", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Picture does not exist.
+        /// </summary>
+        internal static string PictureDoesNotExist {
+            get {
+                return ResourceManager.GetString("PictureDoesNotExist", resourceCulture);
             }
         }
         

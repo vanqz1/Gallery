@@ -7,6 +7,7 @@ using System.Web.Http;
 using System.Web.Http.Cors;
 using Services.Interfaces;
 using Services.Models;
+using WebAPI.Models;
 
 namespace WebAPI.Controllers
 {
@@ -15,13 +16,16 @@ namespace WebAPI.Controllers
     {
         private readonly IPicturesService m_PicturesServices;
         private readonly IAuthenticationService m_TokenService;
+        private readonly IPicturesOrderService m_PicturesOrderService;
 
 
         public PicturesController(IPicturesService picturesServices,
-                                  IAuthenticationService tokenService)
+                                  IAuthenticationService tokenService,
+                                  IPicturesOrderService picturesOrderService)
         {
             m_PicturesServices = picturesServices;
             m_TokenService = tokenService;
+            m_PicturesOrderService = picturesOrderService;
         }
 
         [HttpGet]
@@ -72,7 +76,7 @@ namespace WebAPI.Controllers
             var form = HttpContext.Current.Request.Form;
 
             var isAuthorized = m_TokenService.IsAuthorized(form["AuthToken"]);
-            var newPicture = new NewPicture();
+            var newPicture = new Services.Models.NewPicture();
             if (isAuthorized)
             {
                 if (files.Count == 0)
@@ -118,7 +122,43 @@ namespace WebAPI.Controllers
 
         }
 
-        private NewPicture ValidateNewPictureModel(NameValueCollection form, NewPicture picture)
+        [HttpPost]
+        [Route("api/order/pictures")]
+        public HttpResponseMessage OrderPictures([FromBody] PictureOrder[] picturesOrder )
+        {
+            for (int j = 0; j < picturesOrder.Length; j++)
+            {
+                if (!ValidateOrderPictureModel(picturesOrder[j]))
+                {
+                    return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState);
+                }
+
+                try
+                {
+                    for (int i = 0; i < picturesOrder[0].Products.Length; i++)
+                    {
+                        m_PicturesOrderService.MakeNewPicturesOrder(new Services.Models.PicturesOrder
+                        {
+                            Address = picturesOrder[0].Address,
+                            Comment = picturesOrder[0].Comment,
+                            Emmail = picturesOrder[0].Email,
+                            FullName = picturesOrder[0].FullName,
+                            Phone = picturesOrder[0].Phone,
+                            PictureId = picturesOrder[0].Products[i]
+                        });
+                    }
+                }
+                catch (Exception ex)
+                {
+                    ModelState.AddModelError("Error", "An error accured:" + ex.Message);
+                }
+            }
+            //TO DO: Send email
+            return new HttpResponseMessage(HttpStatusCode.OK);
+
+        }
+
+        private Services.Models.NewPicture ValidateNewPictureModel(NameValueCollection form, Services.Models.NewPicture picture)
         {
             if (string.IsNullOrEmpty(form["TitleBg"]) || string.IsNullOrEmpty(form["TitleEn"]))
                 ModelState.AddModelError("Title", "Please fill both english and bulgarian title");
@@ -158,6 +198,38 @@ namespace WebAPI.Controllers
             else picture.IsSold = true;
 
             return picture;
+        }
+
+        private bool ValidateOrderPictureModel(PictureOrder pictureOrder)
+        {
+            if (String.IsNullOrEmpty(pictureOrder.Address) ||
+                String.IsNullOrEmpty(pictureOrder.Comment) ||
+                String.IsNullOrEmpty(pictureOrder.FullName) ||
+                String.IsNullOrEmpty(pictureOrder.Email) ||
+                String.IsNullOrEmpty(pictureOrder.Phone) ||
+                pictureOrder.Products.Length == 0)
+            {
+                ModelState.AddModelError("ErrorMandatoryFields", "All fields are mandatory");
+                return false;
+            }
+
+            var allPicturesExist = true;
+
+            for (int i = 0; i < pictureOrder.Products.Length; i++)
+            {
+               if( m_PicturesServices.GetByIdPicture(pictureOrder.Products[i],EnumLanguages.English) == null)
+               {
+                    allPicturesExist = false;
+                }
+            }
+
+            if (!allPicturesExist)
+            {
+                ModelState.AddModelError("PictureDoesNotExist", "Picture does not exist");
+                return false;
+            }
+
+            return true;
         }
     }
 }

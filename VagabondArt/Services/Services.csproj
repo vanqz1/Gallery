@@ -91,15 +91,18 @@
     <Compile Include="Interfaces\IAdminService.cs" />
     <Compile Include="Interfaces\IAuthenticationService.cs" />
     <Compile Include="Interfaces\IAuthorService.cs" />
+    <Compile Include="Interfaces\IPicturesOrderService.cs" />
     <Compile Include="Interfaces\IPicturesService.cs" />
     <Compile Include="Models\Author.cs" />
     <Compile Include="Models\NewPicture.cs" />
     <Compile Include="Models\Picture.cs" />
+    <Compile Include="Models\PicturesOrder.cs" />
     <Compile Include="Models\Token.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\AdminService.cs" />
     <Compile Include="Services\AuthenticationService.cs" />
     <Compile Include="Services\AuthorService.cs" />
+    <Compile Include="Services\PicturesOrderService.cs" />
     <Compile Include="Services\PicturesService.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -99,6 +99,7 @@
     <Property Name="Address" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
     <Property Name="ProductId" Type="Int32" Nullable="false" />
     <Property Name="Comment" Type="String" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="FullName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="Picture" Relationship="VagabondModel.FK__OrdersPic__Produ__5FB337D6" FromRole="OrdersPicture" ToRole="Picture" />
   </EntityType>
   <Association Name="FK__OrdersPic__Produ__5FB337D6">

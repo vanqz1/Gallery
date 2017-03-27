@@ -31,6 +31,7 @@
           <Property Name="Address" Type="nvarchar" MaxLength="200" Nullable="false" />
           <Property Name="ProductId" Type="int" Nullable="false" />
           <Property Name="Comment" Type="nvarchar" MaxLength="1000" Nullable="false" />
+          <Property Name="FullName" Type="nvarchar" MaxLength="200" />
         </EntityType>
         <EntityType Name="Pictures">
           <Key>
@@ -215,6 +216,7 @@
           <Property Name="Address" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
           <Property Name="ProductId" Type="Int32" Nullable="false" />
           <Property Name="Comment" Type="String" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="FullName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Picture" Relationship="VagabondModel.FK__OrdersPic__Produ__5FB337D6" FromRole="OrdersPicture" ToRole="Picture" />
         </EntityType>
         <Association Name="FK__OrdersPic__Produ__5FB337D6">
@@ -283,6 +285,7 @@
           <EntitySetMapping Name="OrdersPictures">
             <EntityTypeMapping TypeName="VagabondModel.OrdersPicture">
               <MappingFragment StoreEntitySet="OrdersPictures">
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
                 <ScalarProperty Name="Comment" ColumnName="Comment" />
                 <ScalarProperty Name="ProductId" ColumnName="ProductId" />
                 <ScalarProperty Name="Address" ColumnName="Address" />

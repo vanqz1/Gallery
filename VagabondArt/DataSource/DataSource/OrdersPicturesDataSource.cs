@@ -14,7 +14,8 @@ namespace DataSource.DataSource
                         Phone = pictureOrder.Phone,
                         Address = pictureOrder.Address,
                         Comment = pictureOrder.Comment,
-                        ProductId = pictureOrder.PictureId
+                        ProductId = pictureOrder.PictureId,
+                        FullName = pictureOrder.FullName
                 });
 
                 contex.SaveChanges();

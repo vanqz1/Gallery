@@ -49,6 +49,7 @@
     <EntitySetMapping Name="OrdersPictures">
       <EntityTypeMapping TypeName="VagabondModel.OrdersPicture">
         <MappingFragment StoreEntitySet="OrdersPictures">
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
           <ScalarProperty Name="Comment" ColumnName="Comment" />
           <ScalarProperty Name="ProductId" ColumnName="ProductId" />
           <ScalarProperty Name="Address" ColumnName="Address" />

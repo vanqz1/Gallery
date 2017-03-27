@@ -225,4 +225,10 @@
   <data name="Vagabond" xml:space="preserve">
     <value>Вагабонд</value>
   </data>
+  <data name="ErrorFieldsAreMandatory" xml:space="preserve">
+    <value>Всички полета са задължителни</value>
+  </data>
+  <data name="PictureDoesNotExist" xml:space="preserve">
+    <value>Картината не съществува</value>
+  </data>
 </root>
