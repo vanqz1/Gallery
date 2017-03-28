@@ -135,7 +135,7 @@ namespace WebAPI.Controllers
 
                 try
                 {
-                    for (int i = 0; i < picturesOrder[0].Products.Length; i++)
+                    for (int i = 0; i < picturesOrder[j].Products.Length; i++)
                     {
                         m_PicturesOrderService.MakeNewPicturesOrder(new Services.Models.PicturesOrder
                         {
