@@ -23,6 +23,7 @@ namespace WebAPI
             container.RegisterType<IAuthenticationService, AuthenticationService>();
             container.RegisterType<IAdminService, AdminService>();
             container.RegisterType<IPicturesOrderService, PicturesOrderService>();
+            container.RegisterType<ISendEmailService, SendEmailService>();
 
 
             // Format data which has been sent to JS format

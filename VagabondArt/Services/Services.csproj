@@ -93,6 +93,7 @@
     <Compile Include="Interfaces\IAuthorService.cs" />
     <Compile Include="Interfaces\IPicturesOrderService.cs" />
     <Compile Include="Interfaces\IPicturesService.cs" />
+    <Compile Include="Interfaces\ISendEmailService.cs" />
     <Compile Include="Models\Author.cs" />
     <Compile Include="Models\NewPicture.cs" />
     <Compile Include="Models\Picture.cs" />
@@ -104,6 +105,7 @@
     <Compile Include="Services\AuthorService.cs" />
     <Compile Include="Services\PicturesOrderService.cs" />
     <Compile Include="Services\PicturesService.cs" />
+    <Compile Include="Services\SendEmailService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Repository\Repository.csproj">

@@ -8,6 +8,8 @@ using System.Web.Http.Cors;
 using Services.Interfaces;
 using Services.Models;
 using WebAPI.Models;
+using Services.Services;
+using System.Net.Mail;
 
 namespace WebAPI.Controllers
 {
@@ -126,6 +128,12 @@ namespace WebAPI.Controllers
         [Route("api/order/pictures")]
         public HttpResponseMessage OrderPictures([FromBody] PictureOrder[] picturesOrder )
         {
+            var send = new SendEmailService();
+            MailMessage mail = new MailMessage("artcentervagabond@gmail.com", "vzaycheva@gmail.com");
+            mail.Subject = "New order";
+            mail.IsBodyHtml = true;
+            mail.Body = send.GenerateMailBodyMessageForPictureOrder(picturesOrder[0].Address, picturesOrder[0].Comment, picturesOrder[0].Phone, picturesOrder[0].FullName, picturesOrder[0].Email);
+
             for (int j = 0; j < picturesOrder.Length; j++)
             {
                 if (!ValidateOrderPictureModel(picturesOrder[j]))
@@ -137,7 +145,7 @@ namespace WebAPI.Controllers
                 {
                     for (int i = 0; i < picturesOrder[j].Products.Length; i++)
                     {
-                        m_PicturesOrderService.MakeNewPicturesOrder(new Services.Models.PicturesOrder
+                        var picture = new Services.Models.PicturesOrder
                         {
                             Address = picturesOrder[0].Address,
                             Comment = picturesOrder[0].Comment,
@@ -145,15 +153,21 @@ namespace WebAPI.Controllers
                             FullName = picturesOrder[0].FullName,
                             Phone = picturesOrder[0].Phone,
                             PictureId = picturesOrder[0].Products[i]
-                        });
+                        };
+
+                        m_PicturesOrderService.MakeNewPicturesOrder(picture);
+                        var pictureOrdered = m_PicturesServices.GetByIdPicture(picturesOrder[0].Products[i], EnumLanguages.English);
+                        mail.Body = mail.Body + send.AddPictureInfoToMailBody(pictureOrdered.Title, pictureOrdered.AuthorName, pictureOrdered.Price.ToString());
                     }
+
+                    send.SendEmail(mail);
                 }
                 catch (Exception ex)
                 {
                     ModelState.AddModelError("Error", "An error accured:" + ex.Message);
                 }
             }
-            //TO DO: Send email
+
             return new HttpResponseMessage(HttpStatusCode.OK);
 
         }
