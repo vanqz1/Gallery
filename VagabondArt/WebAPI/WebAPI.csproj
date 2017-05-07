@@ -177,6 +177,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
+    <Content Include="Pictures\cvetq.jpg" />
+    <Content Include="Pictures\jena.png" />
+    <Content Include="Pictures\see.jpg" />
     <Content Include="Pictures\Sid.jpg" />
     <Content Include="scripts\ai.0.22.19-build00125.js" />
     <Content Include="scripts\ai.0.22.19-build00125.min.js" />

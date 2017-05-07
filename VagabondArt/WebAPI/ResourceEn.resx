@@ -231,4 +231,55 @@
   <data name="PictureDoesNotExist" xml:space="preserve">
     <value>Picture does not exist</value>
   </data>
+  <data name="Address" xml:space="preserve">
+    <value>Address</value>
+  </data>
+  <data name="Comment" xml:space="preserve">
+    <value>Comment</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="InfoAboutTheShipment" xml:space="preserve">
+    <value>Info about the shipment</value>
+  </data>
+  <data name="Names" xml:space="preserve">
+    <value>Names</value>
+  </data>
+  <data name="NoItemsInTheShoppingCart" xml:space="preserve">
+    <value>No items in the shopping card</value>
+  </data>
+  <data name="OrderedItems" xml:space="preserve">
+    <value>Ordered items:</value>
+  </data>
+  <data name="OrderError" xml:space="preserve">
+    <value>Order error</value>
+  </data>
+  <data name="OrderForm" xml:space="preserve">
+    <value>Order form</value>
+  </data>
+  <data name="Phone" xml:space="preserve">
+    <value>Phone</value>
+  </data>
+  <data name="Send" xml:space="preserve">
+    <value>Order</value>
+  </data>
+  <data name="ShoppingCart" xml:space="preserve">
+    <value>Card</value>
+  </data>
+  <data name="CartIsEmpty" xml:space="preserve">
+    <value>Cart is empty</value>
+  </data>
+  <data name="ErrorMandatoryFields" xml:space="preserve">
+    <value>All fields are mandatory</value>
+  </data>
+  <data name="deleteProductFromCart" xml:space="preserve">
+    <value>Delete product from card</value>
+  </data>
+  <data name="itemSuccessfullyPlacedInCart" xml:space="preserve">
+    <value>Successfully added to the card</value>
+  </data>
+  <data name="totalPrice" xml:space="preserve">
+    <value>Sum</value>
+  </data>
 </root>

@@ -4,10 +4,11 @@ using System.Web;
 using System.Web.Http;
 using System.Web.Http.Cors;
 using Services.Interfaces;
+using Service.Services;
 
 namespace WebAPI.Controllers
 {
-    [EnableCors(origins: "http://localhost:4200", headers: "*", methods: "*")]
+    [EnableCors(origins: AuthenticationService.GetOriginUrl, headers: "*", methods: "*")]
     public class AuthenticateController : ApiController
     {
         private readonly IAuthenticationService m_AuthenticationService;

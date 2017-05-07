@@ -6,28 +6,30 @@ using System.Web;
 using System.Web.Http;
 using System.Web.Http.Cors;
 using Services.Interfaces;
-using Services.Models;
 using WebAPI.Models;
-using Services.Services;
 using System.Net.Mail;
+using Service.Services;
 
 namespace WebAPI.Controllers
 {
-    [EnableCors(origins: "http://localhost:4200", headers: "*", methods: "*")]
+    [EnableCors(origins: AuthenticationService.GetOriginUrl, headers: "*", methods: "*")]
     public class PicturesController : ApiController
     {
         private readonly IPicturesService m_PicturesServices;
         private readonly IAuthenticationService m_TokenService;
         private readonly IPicturesOrderService m_PicturesOrderService;
+        private readonly ISendEmailService m_SendEmailService;
 
 
         public PicturesController(IPicturesService picturesServices,
                                   IAuthenticationService tokenService,
-                                  IPicturesOrderService picturesOrderService)
+                                  IPicturesOrderService picturesOrderService,
+                                  ISendEmailService sendEmailService)
         {
             m_PicturesServices = picturesServices;
             m_TokenService = tokenService;
             m_PicturesOrderService = picturesOrderService;
+            m_SendEmailService = sendEmailService;
         }
 
         [HttpGet]
@@ -126,50 +128,54 @@ namespace WebAPI.Controllers
 
         [HttpPost]
         [Route("api/order/pictures")]
-        public HttpResponseMessage OrderPictures([FromBody] PictureOrder[] picturesOrder )
+        public HttpResponseMessage OrderPictures()
         {
-            var send = new SendEmailService();
             MailMessage mail = new MailMessage("artcentervagabond@gmail.com", "vzaycheva@gmail.com");
             mail.Subject = "New order";
             mail.IsBodyHtml = true;
-            mail.Body = send.GenerateMailBodyMessageForPictureOrder(picturesOrder[0].Address, picturesOrder[0].Comment, picturesOrder[0].Phone, picturesOrder[0].FullName, picturesOrder[0].Email);
 
-            for (int j = 0; j < picturesOrder.Length; j++)
+            var picturesOrder = HttpContext.Current.Request.Form;
+
+            mail.Body = m_SendEmailService.GenerateMailBodyMessageForPictureOrder(picturesOrder["Address"], picturesOrder["Comment"], picturesOrder["Phone"], picturesOrder["FullName"], picturesOrder["Email"]);
+            if (picturesOrder["Products"] == null)
             {
-                if (!ValidateOrderPictureModel(picturesOrder[j]))
+                ModelState.AddModelError("CartIsEmpty", "The cart is empty");
+                return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState); ;
+            }
+                if (!ValidateOrderPictureModel(picturesOrder))
                 {
                     return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState);
                 }
 
                 try
                 {
-                    for (int i = 0; i < picturesOrder[j].Products.Length; i++)
+                var picturesIds = picturesOrder["Products"].Split(',');
+
+                for (int i = 0; i < picturesIds.Length; i++)
                     {
                         var picture = new Services.Models.PicturesOrder
                         {
-                            Address = picturesOrder[0].Address,
-                            Comment = picturesOrder[0].Comment,
-                            Emmail = picturesOrder[0].Email,
-                            FullName = picturesOrder[0].FullName,
-                            Phone = picturesOrder[0].Phone,
-                            PictureId = picturesOrder[0].Products[i]
+                            Address = picturesOrder["Address"],
+                            Comment = picturesOrder["Comment"],
+                            Emmail = picturesOrder["Email"],
+                            FullName = picturesOrder["FullName"],
+                            Phone = picturesOrder["Phone"],
+                            PictureId = int.Parse(picturesIds[i])
                         };
 
                         m_PicturesOrderService.MakeNewPicturesOrder(picture);
-                        var pictureOrdered = m_PicturesServices.GetByIdPicture(picturesOrder[0].Products[i], EnumLanguages.English);
-                        mail.Body = mail.Body + send.AddPictureInfoToMailBody(pictureOrdered.Title, pictureOrdered.AuthorName, pictureOrdered.Price.ToString());
+                        var pictureOrdered = m_PicturesServices.GetByIdPicture(int.Parse(picturesIds[i]), EnumLanguages.English);
+                        mail.Body = mail.Body + m_SendEmailService.AddPictureInfoToMailBody(pictureOrdered.Title, pictureOrdered.AuthorName, pictureOrdered.Price.ToString());
                     }
 
-                    send.SendEmail(mail);
+                    m_SendEmailService.SendEmail(mail);
                 }
                 catch (Exception ex)
                 {
                     ModelState.AddModelError("Error", "An error accured:" + ex.Message);
                 }
-            }
-
-            return new HttpResponseMessage(HttpStatusCode.OK);
-
+            
+               return new HttpResponseMessage(HttpStatusCode.OK);
         }
 
         private Services.Models.NewPicture ValidateNewPictureModel(NameValueCollection form, Services.Models.NewPicture picture)
@@ -214,24 +220,25 @@ namespace WebAPI.Controllers
             return picture;
         }
 
-        private bool ValidateOrderPictureModel(PictureOrder pictureOrder)
+        private bool ValidateOrderPictureModel(NameValueCollection pictureOrder)
         {
-            if (String.IsNullOrEmpty(pictureOrder.Address) ||
-                String.IsNullOrEmpty(pictureOrder.Comment) ||
-                String.IsNullOrEmpty(pictureOrder.FullName) ||
-                String.IsNullOrEmpty(pictureOrder.Email) ||
-                String.IsNullOrEmpty(pictureOrder.Phone) ||
-                pictureOrder.Products.Length == 0)
+            if (String.IsNullOrEmpty(pictureOrder["Address"]) ||
+                String.IsNullOrEmpty(pictureOrder["Comment"]) ||
+                String.IsNullOrEmpty(pictureOrder["FullName"]) ||
+                String.IsNullOrEmpty(pictureOrder["Email"]) ||
+                String.IsNullOrEmpty(pictureOrder["Phone"]) ||
+                pictureOrder["Products"].Length == 0)
             {
                 ModelState.AddModelError("ErrorMandatoryFields", "All fields are mandatory");
                 return false;
             }
 
             var allPicturesExist = true;
+            var picturesIds = pictureOrder["Products"].Split(',');
 
-            for (int i = 0; i < pictureOrder.Products.Length; i++)
+            for (int i = 0; i < picturesIds.Length; i++)
             {
-               if( m_PicturesServices.GetByIdPicture(pictureOrder.Products[i],EnumLanguages.English) == null)
+               if( m_PicturesServices.GetByIdPicture(int.Parse(picturesIds[i]),EnumLanguages.English) == null)
                {
                     allPicturesExist = false;
                 }

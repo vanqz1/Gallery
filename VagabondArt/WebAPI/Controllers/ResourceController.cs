@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Service.Services;
+using System.Collections;
 using System.Linq;
 using System.Resources;
 using System.Web.Http;
@@ -7,7 +8,7 @@ using System.Web.Http.Cors;
 namespace WebAPI.Controllers
 {
 
-    [EnableCors(origins: "http://localhost:4200", headers: "*", methods: "*")]
+    [EnableCors(origins: AuthenticationService.GetOriginUrl, headers: "*", methods: "*")]
     public class ResourceController : ApiController
     {
         [HttpGet]

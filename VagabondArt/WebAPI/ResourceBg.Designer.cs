@@ -61,6 +61,15 @@ namespace WebAPI {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Адрес.
+        /// </summary>
+        internal static string Address {
+            get {
+                return ResourceManager.GetString("Address", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Админ.
         /// </summary>
         internal static string Admin {
@@ -115,6 +124,24 @@ namespace WebAPI {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Количката е празна.
+        /// </summary>
+        internal static string CartIsEmpty {
+            get {
+                return ResourceManager.GetString("CartIsEmpty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Коментар.
+        /// </summary>
+        internal static string Comment {
+            get {
+                return ResourceManager.GetString("Comment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Контакти.
         /// </summary>
         internal static string Contacts {
@@ -133,11 +160,38 @@ namespace WebAPI {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Премахни продукта от количката.
+        /// </summary>
+        internal static string deleteProductFromCart {
+            get {
+                return ResourceManager.GetString("deleteProductFromCart", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Имейл.
+        /// </summary>
+        internal static string Email {
+            get {
+                return ResourceManager.GetString("Email", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Всички полета са задължителни.
         /// </summary>
         internal static string ErrorFieldsAreMandatory {
             get {
                 return ResourceManager.GetString("ErrorFieldsAreMandatory", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Всички полета са задължителни.
+        /// </summary>
+        internal static string ErrorMandatoryFields {
+            get {
+                return ResourceManager.GetString("ErrorMandatoryFields", resourceCulture);
             }
         }
         
@@ -187,6 +241,15 @@ namespace WebAPI {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Информация за поръчката.
+        /// </summary>
+        internal static string InfoAboutTheShipment {
+            get {
+                return ResourceManager.GetString("InfoAboutTheShipment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to В наличност.
         /// </summary>
         internal static string InStock {
@@ -201,6 +264,15 @@ namespace WebAPI {
         internal static string IsSold {
             get {
                 return ResourceManager.GetString("IsSold", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Успешно добавен в количката.
+        /// </summary>
+        internal static string itemSuccessfullyPlacedInCart {
+            get {
+                return ResourceManager.GetString("itemSuccessfullyPlacedInCart", resourceCulture);
             }
         }
         
@@ -241,6 +313,15 @@ namespace WebAPI {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Имена.
+        /// </summary>
+        internal static string Names {
+            get {
+                return ResourceManager.GetString("Names", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Нов продукт.
         /// </summary>
         internal static string NewProduct {
@@ -268,11 +349,56 @@ namespace WebAPI {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Няма селектирани поръчани продукти.
+        /// </summary>
+        internal static string NoItemsInTheShoppingCart {
+            get {
+                return ResourceManager.GetString("NoItemsInTheShoppingCart", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Поръчани картини:.
+        /// </summary>
+        internal static string OrderedItems {
+            get {
+                return ResourceManager.GetString("OrderedItems", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Грешки.
+        /// </summary>
+        internal static string OrderError {
+            get {
+                return ResourceManager.GetString("OrderError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Форма за поръчка.
+        /// </summary>
+        internal static string OrderForm {
+            get {
+                return ResourceManager.GetString("OrderForm", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Парола:.
         /// </summary>
         internal static string Password {
             get {
                 return ResourceManager.GetString("Password", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Телефон.
+        /// </summary>
+        internal static string Phone {
+            get {
+                return ResourceManager.GetString("Phone", resourceCulture);
             }
         }
         
@@ -358,6 +484,24 @@ namespace WebAPI {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Поръчай.
+        /// </summary>
+        internal static string Send {
+            get {
+                return ResourceManager.GetString("Send", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Количка.
+        /// </summary>
+        internal static string ShoppingCart {
+            get {
+                return ResourceManager.GetString("ShoppingCart", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Размер.
         /// </summary>
         internal static string Size {
@@ -381,6 +525,15 @@ namespace WebAPI {
         internal static string Technics {
             get {
                 return ResourceManager.GetString("Technics", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Сума.
+        /// </summary>
+        internal static string totalPrice {
+            get {
+                return ResourceManager.GetString("totalPrice", resourceCulture);
             }
         }
         

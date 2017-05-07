@@ -61,6 +61,15 @@ namespace WebAPI {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Address.
+        /// </summary>
+        internal static string Address {
+            get {
+                return ResourceManager.GetString("Address", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Admin.
         /// </summary>
         internal static string Admin {
@@ -115,6 +124,24 @@ namespace WebAPI {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Cart is empty.
+        /// </summary>
+        internal static string CartIsEmpty {
+            get {
+                return ResourceManager.GetString("CartIsEmpty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Comment.
+        /// </summary>
+        internal static string Comment {
+            get {
+                return ResourceManager.GetString("Comment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Contacts.
         /// </summary>
         internal static string Contacts {
@@ -133,11 +160,38 @@ namespace WebAPI {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Delete product from card.
+        /// </summary>
+        internal static string deleteProductFromCart {
+            get {
+                return ResourceManager.GetString("deleteProductFromCart", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Email.
+        /// </summary>
+        internal static string Email {
+            get {
+                return ResourceManager.GetString("Email", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to All fields are mandatory.
         /// </summary>
         internal static string ErrorFieldsAreMandatory {
             get {
                 return ResourceManager.GetString("ErrorFieldsAreMandatory", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to All fields are mandatory.
+        /// </summary>
+        internal static string ErrorMandatoryFields {
+            get {
+                return ResourceManager.GetString("ErrorMandatoryFields", resourceCulture);
             }
         }
         
@@ -187,6 +241,15 @@ namespace WebAPI {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Info about the shipment.
+        /// </summary>
+        internal static string InfoAboutTheShipment {
+            get {
+                return ResourceManager.GetString("InfoAboutTheShipment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to In stock.
         /// </summary>
         internal static string InStock {
@@ -201,6 +264,15 @@ namespace WebAPI {
         internal static string IsSold {
             get {
                 return ResourceManager.GetString("IsSold", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Successfully added to the card.
+        /// </summary>
+        internal static string itemSuccessfullyPlacedInCart {
+            get {
+                return ResourceManager.GetString("itemSuccessfullyPlacedInCart", resourceCulture);
             }
         }
         
@@ -241,6 +313,15 @@ namespace WebAPI {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Names.
+        /// </summary>
+        internal static string Names {
+            get {
+                return ResourceManager.GetString("Names", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to New product.
         /// </summary>
         internal static string NewProduct {
@@ -268,11 +349,56 @@ namespace WebAPI {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to No items in the shopping card.
+        /// </summary>
+        internal static string NoItemsInTheShoppingCart {
+            get {
+                return ResourceManager.GetString("NoItemsInTheShoppingCart", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ordered items:.
+        /// </summary>
+        internal static string OrderedItems {
+            get {
+                return ResourceManager.GetString("OrderedItems", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Order error.
+        /// </summary>
+        internal static string OrderError {
+            get {
+                return ResourceManager.GetString("OrderError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Order form.
+        /// </summary>
+        internal static string OrderForm {
+            get {
+                return ResourceManager.GetString("OrderForm", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Password:.
         /// </summary>
         internal static string Password {
             get {
                 return ResourceManager.GetString("Password", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Phone.
+        /// </summary>
+        internal static string Phone {
+            get {
+                return ResourceManager.GetString("Phone", resourceCulture);
             }
         }
         
@@ -358,6 +484,24 @@ namespace WebAPI {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Order.
+        /// </summary>
+        internal static string Send {
+            get {
+                return ResourceManager.GetString("Send", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Card.
+        /// </summary>
+        internal static string ShoppingCart {
+            get {
+                return ResourceManager.GetString("ShoppingCart", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Size.
         /// </summary>
         internal static string Size {
@@ -381,6 +525,15 @@ namespace WebAPI {
         internal static string Technics {
             get {
                 return ResourceManager.GetString("Technics", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sum.
+        /// </summary>
+        internal static string totalPrice {
+            get {
+                return ResourceManager.GetString("totalPrice", resourceCulture);
             }
         }
         

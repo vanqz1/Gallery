@@ -231,4 +231,55 @@
   <data name="PictureDoesNotExist" xml:space="preserve">
     <value>Картината не съществува</value>
   </data>
+  <data name="InfoAboutTheShipment" xml:space="preserve">
+    <value>Информация за поръчката</value>
+  </data>
+  <data name="Names" xml:space="preserve">
+    <value>Имена</value>
+  </data>
+  <data name="NoItemsInTheShoppingCart" xml:space="preserve">
+    <value>Няма селектирани поръчани продукти</value>
+  </data>
+  <data name="OrderedItems" xml:space="preserve">
+    <value>Поръчани картини:</value>
+  </data>
+  <data name="ShoppingCart" xml:space="preserve">
+    <value>Количка</value>
+  </data>
+  <data name="Address" xml:space="preserve">
+    <value>Адрес</value>
+  </data>
+  <data name="Comment" xml:space="preserve">
+    <value>Коментар</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>Имейл</value>
+  </data>
+  <data name="OrderError" xml:space="preserve">
+    <value>Грешки</value>
+  </data>
+  <data name="OrderForm" xml:space="preserve">
+    <value>Форма за поръчка</value>
+  </data>
+  <data name="Phone" xml:space="preserve">
+    <value>Телефон</value>
+  </data>
+  <data name="Send" xml:space="preserve">
+    <value>Поръчай</value>
+  </data>
+  <data name="CartIsEmpty" xml:space="preserve">
+    <value>Количката е празна</value>
+  </data>
+  <data name="ErrorMandatoryFields" xml:space="preserve">
+    <value>Всички полета са задължителни</value>
+  </data>
+  <data name="deleteProductFromCart" xml:space="preserve">
+    <value>Премахни продукта от количката</value>
+  </data>
+  <data name="itemSuccessfullyPlacedInCart" xml:space="preserve">
+    <value>Успешно добавен в количката</value>
+  </data>
+  <data name="totalPrice" xml:space="preserve">
+    <value>Сума</value>
+  </data>
 </root>

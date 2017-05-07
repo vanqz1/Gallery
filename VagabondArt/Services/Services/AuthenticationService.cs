@@ -10,6 +10,8 @@ namespace Service.Services
     {
         private readonly ITokenRepository m_TokenRepository;
 
+        public  const string GetOriginUrl = "http://vagabond-ichko.c9users.io:8080";
+
         public AuthenticationService(ITokenRepository tokenRepository)
         {
             m_TokenRepository = tokenRepository;
